@@ -184,13 +184,6 @@ export default function CertificationSection() {
           />
         ))}
       </div>
-
-      {/* Bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-10 px-8 md:px-20 pb-8">
-        <svg viewBox="0 0 800 4" className="w-full" height="4">
-          <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="white" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
-        </svg>
-      </div>
     </section>
   );
 }

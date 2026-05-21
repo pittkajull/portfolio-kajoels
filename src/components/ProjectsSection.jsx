@@ -101,8 +101,8 @@ const ongoingProjects = [
 
 // Auto split: angka → font-sans, huruf → font-heading
 function mixedFont(text) {
-  return text.split(/(\d+)/).map((part, i) =>
-    /^\d+$/.test(part)
+  return text.split(/(\d+%?)/).map((part, i) =>
+    /^\d+%?$/.test(part)
       ? <span key={i} className="font-sans">{part}</span>
       : <span key={i} className="font-heading">{part}</span>
   );
@@ -284,13 +284,6 @@ export default function ProjectsSection() {
 
         {/* Completed Projects */}
         <ProjectSubsection label="Completed" projects={completedProjects} />
-
-        {/* Divider */}
-        <div className="my-16 opacity-10">
-          <svg viewBox="0 0 800 4" className="w-full" height="4">
-            <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="white" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
-          </svg>
-        </div>
 
         {/* Ongoing Projects */}
         <ProjectSubsection label="On Going" projects={ongoingProjects} />

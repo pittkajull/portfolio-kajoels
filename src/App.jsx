@@ -15,6 +15,7 @@ import ProjectsSection from './components/ProjectsSection';
 import ArticleSection from './components/ArticleSection';
 import ContactFooter from './components/ContactFooter';
 import CustomCursor from './components/CustomCursor';
+import LoadingPage from './components/LoadingPage';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -22,6 +23,7 @@ const navSections = ["about", "education", "tools", "experience", "certification
 
 export default function App() {
   const [activeNav, setActiveNav] = useState("About");
+  const [loading, setLoading] = useState(true);
   const containerRef = useRef(null);
 
   useGSAP(() => {
@@ -47,6 +49,7 @@ export default function App() {
     <div ref={containerRef} className="bg-black text-white min-h-screen overflow-x-hidden"
       style={{ fontFamily: "'Courier New', Courier, monospace" }}>
 
+      {loading && <LoadingPage onComplete={() => setLoading(false)} />}
       <CustomCursor />
       <SketchBg />
       <Navbar active={activeNav} onNav={scrollTo} />

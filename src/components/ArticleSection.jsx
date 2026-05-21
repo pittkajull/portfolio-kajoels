@@ -86,8 +86,8 @@ function ArticleFeatured({ article }) {
         <span className="px-2 py-0.5 text-[10px] font-mono text-white/60 border border-white/15 rounded-full">
           {article.tag}
         </span>
-        <span className="text-white/30 text-xs font-mono">{article.date}</span>
-        <span className="text-white/30 text-xs font-mono">{article.readTime}</span>
+        <span className="text-white/30 text-xs">{mixedFont(article.date)}</span>
+        <span className="text-white/30 text-xs">{mixedFont(article.readTime)}</span>
       </div>
 
       {/* Title */}
@@ -139,16 +139,16 @@ function ArticleListItem({ article, isActive, onClick }) {
       {/* Info */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-white/30 text-[10px] font-mono">{article.date}</span>
-          <span className="text-white/20 text-[10px] font-mono">·</span>
-          <span className="text-white/30 text-[10px] font-mono">{article.readTime}</span>
+          <span className="text-white/30 text-[10px]">{mixedFont(article.date)}</span>
+          <span className="text-white/20 text-[10px]">·</span>
+          <span className="text-white/30 text-[10px]">{mixedFont(article.readTime)}</span>
         </div>
         <h4 className={`text-sm mb-1 line-clamp-2 transition-colors ${
           isActive ? "text-white" : "text-white/60"
         }`}>
           {mixedFont(article.title)}
         </h4>
-        <p className="text-white/30 text-xs line-clamp-1">{article.desc}</p>
+        <p className="text-white/30 text-xs line-clamp-1">{mixedFont(article.desc)}</p>
       </div>
     </button>
   );

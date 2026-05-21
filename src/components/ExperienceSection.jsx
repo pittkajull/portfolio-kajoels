@@ -12,6 +12,15 @@ const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
   </svg>
 );
 
+// Auto split: angka → font-sans, huruf → font-heading
+function mixedFont(text) {
+  return text.split(/(\d+)/).map((part, i) =>
+    /^\d+$/.test(part)
+      ? <span key={i} className="font-sans">{part}</span>
+      : <span key={i} className="font-heading">{part}</span>
+  );
+}
+
 const ExperienceText = () => (
   <div className="flex gap-2 items-end">
     <SVGLetter src="/img/experiencesection/E.svg" width={60} height={80} className="exp-letter" />
@@ -123,7 +132,7 @@ function ExperienceItem({ title, period, description, logo, logoSize = 'w-48 h-4
       </h3>
       <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-8">
         <div className="flex-1 min-w-0">
-          <p className="exp-period text-white/50 text-xs uppercase tracking-[0.3em]">{period}</p>
+          <p className="exp-period text-white/50 text-xs uppercase tracking-[0.3em]">{mixedFont(period)}</p>
           <p className="exp-desc mt-5 text-white/70 text-sm md:text-base leading-7">{description}</p>
         </div>
         {logo && (
@@ -229,12 +238,6 @@ export default function ExperienceSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-16 w-full opacity-10">
-          <svg viewBox="0 0 800 4" className="w-full" height="4">
-            <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="white" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
-          </svg>
         </div>
       </div>
     </section>

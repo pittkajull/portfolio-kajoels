@@ -168,12 +168,6 @@ export default function ToolsSection() {
             <ToolCard key={tool.name} {...tool} />
           ))}
         </div>
-
-        <div className="mt-16 w-full opacity-10">
-          <svg viewBox="0 0 800 4" className="w-full" height="4">
-            <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="white" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
-          </svg>
-        </div>
       </div>
     </Section>
   );

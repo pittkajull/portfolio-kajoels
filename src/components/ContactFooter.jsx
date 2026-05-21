@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
+const SVGLetter = ({ src, width = 50, height = 66, className = "" }) => (
   <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
@@ -21,10 +21,20 @@ function mixedFont(text) {
 }
 
 const socialLinks = [
-  { name: "GitHub", url: "https://github.com/pittkajull", icon: "GH" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/muhajir-amrullah22", icon: "LI" },
-  { name: "Medium", url: "https://medium.com/@muhajiramrullahub", icon: "MD" },
-  { name: "Email", url: "mailto:muhajiramrullahub@gmail.com", icon: "@" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/muhajir-amrullah-463915337", img: "/img/contactsection/linkedinblack.svg" },
+  { name: "Instagram", url: "https://www.instagram.com/muhajiramrllh._", img: "/img/contactsection/igblack.svg" },
+  { name: "TikTok", url: "https://www.tiktok.com/@user0123405056789101112", img: "/img/contactsection/tiktokblack.svg" },
+  { name: "Medium", url: "https://medium.com/@muhajiramrullahub", img: "/img/contactsection/mediumblack.svg" },
+  { name: "Linktree", url: "https://linktr.ee/muhajiramrullah", img: "/img/contactsection/linktreeblack.svg" },
+];
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Articles", href: "#articles" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function ContactFooter() {
@@ -60,12 +70,6 @@ export default function ContactFooter() {
       stagger: 0.08,
       ease: "power2.out",
     }, "-=0.2")
-    .from(".contact-divider", {
-      scaleX: 0,
-      transformOrigin: "center",
-      duration: 0.5,
-      ease: "power2.out",
-    }, "-=0.1")
     .from(".contact-footer-text", {
       opacity: 0,
       duration: 0.4,
@@ -74,11 +78,11 @@ export default function ContactFooter() {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} id="contact" data-cursor-theme="light" className="relative bg-white text-black px-8 md:px-20 pt-20 pb-8">
+    <footer ref={footerRef} id="contact" data-cursor-theme="light" className="relative bg-white text-black px-8 md:px-20 pt-3 pb-8">
       <div className="max-w-6xl mx-auto w-full">
-        {/* Contact heading */}
-        <div className="mb-12">
-          <div className="contact-title flex gap-1 items-end mb-4">
+        {/* Contact heading — atur jarak ke bawah via mb-X di bawah ini */}
+        <div className="mb-4">
+          <div className="contact-title flex gap-1 items-end mb-2">
             <SVGLetter src="/img/contactsection/l.svg" className="contact-letter" />
             <SVGLetter src="/img/contactsection/e.svg" className="contact-letter" />
             <SVGLetter src="/img/contactsection/t.svg" className="contact-letter" />
@@ -96,44 +100,80 @@ export default function ContactFooter() {
             <SVGLetter src="/img/contactsection/t-1.svg" className="contact-letter" />
           </div>
           <div className="contact-underline">
-            <img src="/img/contactsection/garisbawah.svg" alt="" className="w-48 md:w-56 h-auto" />
+            <img src="/img/contactsection/garisbawah.svg" alt="" className="w-36 md:w-44 h-auto" />
           </div>
         </div>
 
-        {/* Social links */}
-        <div className="flex flex-wrap gap-6 mb-16">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link group flex items-center gap-3 px-5 py-3 border border-black/15 rounded-lg hover:border-black/30 hover:bg-black/5 transition-all duration-200"
-            >
-              <span className="font-mono text-black/40 text-xs tracking-wider group-hover:text-black/70 transition-colors">
-                {link.icon}
-              </span>
-              <span className="font-heading text-black/60 text-sm group-hover:text-black transition-colors">
-                {link.name}
-              </span>
-            </a>
-          ))}
-        </div>
+        {/* Footer grid: logo+name+motto | nav | social | contact */}
+        <div className="contact-link grid grid-cols-1 md:grid-cols-4 gap-10 mb-8">
 
-        {/* Divider */}
-        <div className="contact-divider opacity-10 mb-8">
-          <svg viewBox="0 0 800 4" className="w-full" height="4">
-            <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="black" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
-          </svg>
+          {/* Logo + Site name + Motto */}
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <img src="/img/logo/logohe1istblack.svg" alt="Logo" className="w-10 h-10 rounded-lg object-contain" />
+              <span className="text-2xl text-black"><span className="font-heading">he</span><span className="font-sans">1</span><span className="font-heading">st</span></span>
+            </div>
+            <p className="font-heading text-lg text-black/80 leading-relaxed">
+              A personal portfolio built to showcase my work, projects, and journey as a developer.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-heading text-xl text-black mb-3">Navigation</h4>
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="font-heading text-lg text-black/80 hover:text-black transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Social Media — icon only */}
+          <div>
+            <h4 className="font-heading text-xl text-black mb-3">Social Media</h4>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={link.name}
+                  className="flex items-center justify-center hover:opacity-70 transition-opacity duration-200"
+                >
+                  <img src={link.img} alt={link.name} className="w-8 h-8" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-heading text-xl text-black mb-3">Contact</h4>
+            <div className="flex flex-col gap-2">
+              <a href="mailto:muhajiramrullahub@gmail.com" className="font-heading text-lg text-black/80 hover:text-black transition-colors">
+                muhajiramrullahub@gmail.com
+              </a>
+              <span className="font-heading text-lg text-black/80">
+                Indonesia
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Footer bottom */}
         <div className="contact-footer-text flex flex-col md:flex-row justify-between items-center gap-4">
-          <span className="font-mono text-black/20 text-xs tracking-widest">
-            {mixedFont("© 2025 Muhajir Amrullah")}
+          <span className="text-black/80 text-xl tracking-widest">
+            {mixedFont("© 2026 He1st.")}
           </span>
-          <span className="font-mono text-black/20 text-xs tracking-widest">
-            {mixedFont("Built with React + Tailwind")}
+          <span className="text-black/80 text-xl tracking-widest">
+            {mixedFont("copyright protected by law.")}
           </span>
         </div>
       </div>
