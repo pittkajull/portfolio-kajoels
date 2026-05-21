@@ -7,6 +7,17 @@
   font-style: normal;
 }
 
+@theme {
+  --font-heading: 'Handodle', system-ui, sans-serif;
+}
+
 body {
   margin: 0;
+  cursor: none;
+}
+
+*,
+*::before,
+*::after {
+  cursor: none !important;
 }

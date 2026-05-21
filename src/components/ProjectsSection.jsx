@@ -1,102 +1,300 @@
-import { useState } from 'react';
-import { Section, SketchUnderline, SkillTag } from '../shared';
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import SketchUnderline from "./SketchUnderline";
 
-const projects = [
+gsap.registerPlugin(ScrollTrigger);
+
+const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
+  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+    <image href={src} width={width} height={height} />
+  </svg>
+);
+
+const kotakFrames = [
+  "/img/experiencesection/kotak1.svg",
+  "/img/experiencesection/kotak2.svg",
+  "/img/experiencesection/kotak 3.svg",
+];
+
+const techLogos = {
+  "HTML": "/img/toolssection/html.svg",
+  "CSS": "/img/toolssection/css.svg",
+  "Tailwind": "/img/toolssection/tailwind.svg",
+  "PHP": "/img/toolssection/php.svg",
+  "MySQL": "/img/toolssection/mysql.svg",
+  "Blade": "/img/toolssection/laravel.svg",
+  "Laravel": "/img/toolssection/laravel.svg",
+  "Dart": "/img/toolssection/dart.svg",
+  "Flutter": "/img/toolssection/flutter.svg",
+  "Firebase": "/img/toolssection/firebase.svg",
+  "Python": "/img/toolssection/python.svg",
+  "React": "/img/toolssection/React.svg",
+  "TensorFlow": "/img/toolssection/tensorflow.svg",
+  "Supabase": "/img/toolssection/supabase.svg",
+};
+
+const completedProjects = [
   {
-    title: "Project Alpha",
-    desc: "A responsive web app with focus on accessibility and performance optimization.",
-    tags: ["React", "Tailwind"],
-    year: "2024",
-    delay: 0.1,
+    title: "Reincarnate",
+    desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
+    image: "/img/projectsection/Reincarnate.png",
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
+    github: "https://github.com/pittkajull/reincarnate.git",
+    demo: "#",
   },
   {
-    title: "SecureBoard",
-    desc: "Dashboard for monitoring and visualizing vulnerability scan results.",
-    tags: ["Next.js", "TypeScript"],
-    year: "2024",
-    delay: 0.2,
+    title: "Artnest",
+    desc: "A social media platform for digital creators to showcase, share, and discover digital artwork. Built as a community-driven space where artists can connect and present their creative portfolios.",
+    image: "/img/projectsection/Artnest.png",
+    tech: ["CSS", "HTML", "Tailwind", "PHP", "MySQL"],
+    github: "https://github.com/pittkajull/artnest.git",
+    demo: "#",
   },
   {
-    title: "UI System",
-    desc: "Modular design system built from scratch with Figma and React.",
-    tags: ["Figma", "React"],
-    year: "2023",
-    delay: 0.3,
+    title: "Focusly",
+    desc: "A focus and productivity app inspired by the Pomodoro technique, enhanced with pre-study relaxation sessions to calm the user before starting, and post-study appreciation moments to celebrate completion.",
+    image: "/img/projectsection/Focusly.png",
+    tech: ["Dart", "Flutter", "Firebase"],
+    github: "https://github.com/pittkajull/focusly.git",
+    demo: "#",
   },
   {
-    title: "PenTest Toolkit",
-    desc: "Personal collection of scripts and utilities for security assessments.",
-    tags: ["Python", "Bash"],
-    year: "2024",
-    delay: 0.15,
+    title: "Class Billiard",
+    desc: "A premium billiard lounge & cafe website featuring table reservations, menu browsing, team profiles, tournament showcases, and customer reviews — serving as both a marketing platform and booking portal.",
+    image: "/img/projectsection/class-billiard.png",
+    tech: ["CSS", "HTML", "Tailwind", "Blade", "Laravel", "PHP", "MySQL"],
+    github: "https://github.com/pittkajull/class_billiard.git",
+    demo: "https://classbilliard.com",
   },
   {
-    title: "Portfolio v1",
-    desc: "Previous iteration of personal portfolio with experimental animations.",
-    tags: ["HTML", "CSS", "JS"],
-    year: "2023",
-    delay: 0.25,
-  },
-  {
-    title: "AI Prompt Lab",
-    desc: "Experiments in prompt engineering for development efficiency.",
-    tags: ["AI", "Prompting"],
-    year: "2025",
-    delay: 0.35,
+    title: "Pakbie",
+    desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
+    image: "/img/projectsection/pakbie.png",
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
+    github: "https://github.com/pittkajull/umkmpakbie.git",
+    demo: "#",
   },
 ];
 
-function ProjectCard({ title, desc, tags, year }) {
-  const [hovered, setHovered] = useState(false);
+const ongoingProjects = [
+  {
+    title: "StockPP",
+    desc: "An autonomous financial forecasting agent that automates the entire ML lifecycle for stock market analysis — from real-time data collection, preprocessing, training, to deployment. Uses Stacked LSTM with automated retraining and RMSE-based validation. Integrates Supabase for cloud persistence and FastAPI with model caching, reducing inference latency from ~5s to <50ms. Currently monitors 8 major stocks with ~15 automated retraining cycles per week, cutting manual analysis time by 90%.",
+    image: "/img/projectsection/StockPP.png",
+    tech: ["Python", "React", "TensorFlow", "Supabase", "Tailwind"],
+    github: "https://github.com/pittkajull/StockPP.git",
+    demo: "#",
+    progress: 70,
+  },
+  {
+    title: "SIMS",
+    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
+    image: "/img/projectsection/SIMS.png",
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React"],
+    github: "https://github.com/pittkajull/smart-infusion.git",
+    demo: "#",
+    progress: 50,
+  },
+];
+
+// Auto split: angka → font-sans, huruf → font-heading
+function mixedFont(text) {
+  return text.split(/(\d+)/).map((part, i) =>
+    /^\d+$/.test(part)
+      ? <span key={i} className="font-sans">{part}</span>
+      : <span key={i} className="font-heading">{part}</span>
+  );
+}
+
+function ProgressBar({ percent }) {
+  const bars = [0, 10, 30, 50, 70, 100];
+  const closest = bars.reduce((prev, curr) =>
+    Math.abs(curr - percent) < Math.abs(prev - percent) ? curr : prev
+  );
+
+  return (
+    <div>
+      <img
+        src={`/img/projectsection/bar${closest}%.svg`}
+        alt={`${percent}% progress`}
+        className="w-full h-auto"
+      />
+      <p className="text-white/40 text-[10px] mt-1 text-right">{mixedFont(`Progress ${percent}%`)}</p>
+    </div>
+  );
+}
+
+function ProjectCard({ title, desc, image, tech, github, demo, progress, index }) {
+  const tilt = ((index % 3) - 1) * 1;
+  const frame = kotakFrames[index % kotakFrames.length];
+
   return (
     <div
-      className="relative p-6 cursor-default transition-all duration-300"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="project-card group relative flex flex-col"
+      style={{ transform: `rotate(${tilt}deg)` }}
     >
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <rect x="1" y="1" width="98" height="98" rx="2"
-          stroke={hovered ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.15)"}
-          strokeWidth="0.5" fill="none" strokeLinecap="round"
-          style={{ transition: "stroke 0.3s" }} />
-        {hovered && <>
-          <path d="M1 1 L8 1 M1 1 L1 8" stroke="white" strokeWidth="1" strokeLinecap="round" />
-          <path d="M99 1 L92 1 M99 1 L99 8" stroke="white" strokeWidth="1" strokeLinecap="round" />
-          <path d="M1 99 L8 99 M1 99 L1 92" stroke="white" strokeWidth="1" strokeLinecap="round" />
-          <path d="M99 99 L92 99 M99 99 L99 92" stroke="white" strokeWidth="1" strokeLinecap="round" />
-        </>}
-      </svg>
-      <div className="relative z-10">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="font-mono text-white text-sm tracking-wide">{title}</h3>
-          <span className="font-mono text-white/30 text-xs">{year}</span>
+      {/* Thumbnail with kotak frame */}
+      <div className="relative mb-4" style={{ aspectRatio: "307 / 211" }}>
+        <img
+          src={frame}
+          alt=""
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity duration-500"
+        />
+        <div className="absolute inset-0 flex items-center justify-center" style={{ padding: "10% 9%" }}>
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover rounded-sm opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+          />
         </div>
-        <p className="text-white/50 text-xs leading-relaxed mb-4 font-light">{desc}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map(t => <SkillTag key={t} label={t} />)}
+      </div>
+
+      {/* Info */}
+      <h3 className="text-white text-lg mb-2">{mixedFont(title)}</h3>
+      <p className="text-white/50 text-xs leading-relaxed mb-3 flex-1">{mixedFont(desc)}</p>
+
+      {/* Tech stack logos */}
+      <div className="flex flex-wrap gap-2 mb-3">
+        {tech.map((t) => (
+          <img
+            key={t}
+            src={techLogos[t]}
+            alt={t}
+            title={t}
+            className="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity duration-200"
+          />
+        ))}
+      </div>
+
+      {/* Progress bar for ongoing */}
+      {progress !== undefined && (
+        <div className="mb-3">
+          <ProgressBar percent={progress} />
         </div>
+      )}
+
+      {/* Links */}
+      <div className="flex items-center gap-4 mt-auto pt-2">
+        {github && github !== "#" && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-white/40 hover:text-white text-xs font-mono transition-colors"
+          >
+            GitHub ↗
+          </a>
+        )}
+        {demo && demo !== "#" && (
+          <a
+            href={demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-white/40 hover:text-white text-xs font-mono transition-colors"
+          >
+            Live Demo ↗
+          </a>
+        )}
       </div>
     </div>
   );
 }
 
-export default function ProjectsSection({ fadeIn }) {
+function ProjectSubsection({ label, projects }) {
   return (
-    <Section id="projects" className="px-8 md:px-20">
-      <div className="max-w-6xl mx-auto w-full">
-        <div {...fadeIn("projects", 0)}>
-          <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: "'Georgia', serif" }}>Projects</h2>
-          <SketchUnderline width={110} />
+    <div className="project-subsection">
+      <h3 className="project-subtitle font-heading text-white/70 text-xl md:text-2xl mb-8">
+        {label}
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((proj, i) => (
+          <ProjectCard key={proj.title} {...proj} index={i} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function ProjectsSection() {
+  const sectionRef = useRef(null);
+
+  useGSAP(() => {
+    // Title entrance
+    gsap.from(".proj-letter", {
+      y: 30,
+      opacity: 0,
+      rotation: () => gsap.utils.random(-10, 10),
+      stagger: 0.05,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: ".project-title-img",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Subsection labels
+    gsap.from(".project-subtitle", {
+      x: -30,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: ".project-subtitle",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Cards entrance
+    gsap.from(".project-card", {
+      y: 50,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".project-card",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, { scope: sectionRef });
+
+  return (
+    <section id="projects" data-cursor-theme="dark" className="relative bg-black text-white px-8 md:px-20 pt-20 pb-12">
+      <div ref={sectionRef} className="max-w-6xl mx-auto w-full">
+        {/* Title */}
+        <div className="mb-12">
+          <div className="project-title-img flex gap-2 items-end mb-6">
+            <SVGLetter src="/img/projectsection/p.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/r.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/o.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/j.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/e.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/c.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="/img/projectsection/t.svg" width={60} height={80} className="proj-letter" />
+          </div>
+          <SketchUnderline width={200} />
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {projects.map(({ delay, ...project }) => (
-            <div key={project.title} {...fadeIn("projects", delay)}>
-              <ProjectCard {...project} />
-            </div>
-          ))}
+        {/* Completed Projects */}
+        <ProjectSubsection label="Completed" projects={completedProjects} />
+
+        {/* Divider */}
+        <div className="my-16 opacity-10">
+          <svg viewBox="0 0 800 4" className="w-full" height="4">
+            <path d="M0 2 Q200 1 400 2 Q600 3 800 2" stroke="white" strokeWidth="0.8" fill="none" strokeDasharray="4 3" />
+          </svg>
         </div>
+
+        {/* Ongoing Projects */}
+        <ProjectSubsection label="On Going" projects={ongoingProjects} />
       </div>
-    </Section>
+    </section>
   );
 }

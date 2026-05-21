@@ -1,4 +1,4 @@
-const navLinks = ["About", "Skills", "Projects", "Contact"];
+const navLinks = ["About", "Education", "Tools", "Experience", "Certification", "Projects", "Articles", "Contact"];
 
 export default function Navbar({ active, onNav }) {
   return (

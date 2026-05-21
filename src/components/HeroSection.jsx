@@ -1,53 +1,126 @@
-import { useState, useEffect, useRef } from "react";
-import { SketchBg, createFadeIn } from './shared';
-import Navbar from './Navbar';
-import { AboutSection, SkillsSection, ProjectsSection, ContactSection } from './sections';
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-export default function Portfolio() {
-  const [activeNav, setActiveNav] = useState("About");
-  const [visibleSections, setVisibleSections] = useState({});
-  const containerRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
 
-  const fadeIn = createFadeIn(visibleSections);
+export default function HeroSection() {
+  const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            setVisibleSections(prev => ({ ...prev, [e.target.id]: true }));
-            setActiveNav(e.target.id.charAt(0).toUpperCase() + e.target.id.slice(1));
-          }
-        });
+  useGSAP(() => {
+    const section = sectionRef.current;
+
+    // Main content fades out and moves up on scroll
+    gsap.to(".hero-content", {
+      y: -100,
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "60% top",
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
       },
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll("section[id]").forEach(s => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+    });
 
-  const scrollTo = (name) => {
-    document.getElementById(name.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
-  };
+    // Decorative elements parallax at different speeds
+    gsap.to(".hero-deco-hama", {
+      y: -180,
+      rotation: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.5,
+      },
+    });
+
+    gsap.to(".hero-deco-hiu", {
+      y: -120,
+      rotation: -10,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.8,
+      },
+    });
+
+    // SVG letters stagger entrance
+    gsap.from(".hero-letter", {
+      y: 60,
+      opacity: 0,
+      rotation: () => gsap.utils.random(-15, 15),
+      stagger: 0.08,
+      duration: 1,
+      ease: "back.out(1.7)",
+      delay: 0.3,
+    });
+
+    // Subtitle entrance
+    gsap.from(".hero-subtitle", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 1.2,
+    });
+
+    // Scroll indicator
+    gsap.from(".hero-scroll-indicator", {
+      opacity: 0,
+      duration: 0.6,
+      delay: 1.8,
+    });
+  }, { scope: sectionRef });
 
   return (
-    <div ref={containerRef} className="bg-black text-white min-h-screen overflow-x-hidden"
-      style={{ fontFamily: "'Courier New', Courier, monospace" }}>
-
-      <SketchBg />
-      <Navbar active={activeNav} onNav={scrollTo} />
-
-      <AboutSection fadeIn={fadeIn} scrollTo={scrollTo} />
-      <SkillsSection fadeIn={fadeIn} />
-      <ProjectsSection fadeIn={fadeIn} />
-      <ContactSection fadeIn={fadeIn} />
-
-      <footer className="border-t border-white/5 px-8 md:px-20 py-8">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <span className="font-mono text-white/20 text-xs tracking-widest">© 2025</span>
-          <span className="font-mono text-white/20 text-xs tracking-widest">BUILT WITH REACT + TAILWIND</span>
+    <section ref={sectionRef} id="hero" data-cursor-theme="dark" className="min-h-screen flex items-center justify-center relative px-8">
+      <div className="hero-content max-w-6xl w-full text-center">
+        {/* Decorative elements */}
+        <div className="hero-deco-hama absolute top-20 left-8 w-24 h-24 opacity-60">
+          <img src="/img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
         </div>
-      </footer>
-    </div>
+
+        <div className="hero-deco-hiu absolute bottom-32 right-8 w-28 h-28 opacity-60">
+          <img src="/img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
+        </div>
+
+        {/* Main heading with SVG letters */}
+        <div className="mb-8">
+          <div className="flex justify-center items-end gap-1 mb-6">
+            <img src="/img/herosection/P.svg" alt="P" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/r.svg" alt="r" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/t.svg" alt="t" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/f.svg" alt="f" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/l.svg" alt="l" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/i.svg" alt="i" className="hero-letter h-24 md:h-32" />
+            <img src="/img/herosection/O.svg" alt="o" className="hero-letter h-24 md:h-32" />
+          </div>
+          <div className="flex justify-center mb-8">
+            <img src="/img/herosection/garisbawah.svg" alt="underline" className="h-2" />
+          </div>
+        </div>
+
+        {/* Subtitle */}
+        <p className="hero-subtitle text-white/60 text-lg font-light tracking-wide max-w-2xl mx-auto mb-12">
+          Front-End Developer & Prompt Engineer
+        </p>
+
+        {/* Scroll indicator */}
+        <div className="hero-scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
   );
 }
