@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -7,7 +7,7 @@ import SketchUnderline from "./SketchUnderline";
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
@@ -113,27 +113,91 @@ function ProgressBar({ percent }) {
   const closest = bars.reduce((prev, curr) =>
     Math.abs(curr - percent) < Math.abs(prev - percent) ? curr : prev
   );
+  const countRef = useRef(null);
+  const [displayPercent, setDisplayPercent] = useState(0);
+
+  useEffect(() => {
+    const el = countRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: percent,
+            duration: 1.2,
+            ease: "power2.out",
+            onUpdate: () => setDisplayPercent(Math.round(obj.val)),
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [percent]);
 
   return (
-    <div>
+    <div ref={countRef}>
       <img
         src={`/img/projectsection/bar${closest}%.svg`}
         alt={`${percent}% progress`}
         className="w-full h-auto"
       />
-      <p className="text-white/40 text-[10px] mt-1 text-right">{mixedFont(`Progress ${percent}%`)}</p>
+      <p className="text-white/40 text-[10px] mt-1 text-right">{mixedFont(`Progress ${displayPercent}%`)}</p>
     </div>
   );
 }
 
 function ProjectCard({ title, desc, image, tech, github, demo, progress, index }) {
-  const tilt = ((index % 3) - 1) * 1;
+  const baseTilt = ((index % 3) - 1) * 1;
   const frame = kotakFrames[index % kotakFrames.length];
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
+    const onMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(card, {
+        rotateY: x * 10,
+        rotateX: -y * 10,
+        transformPerspective: 800,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    const onLeave = () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        rotate: baseTilt,
+        duration: 0.5,
+        ease: "elastic.out(1, 0.5)",
+      });
+    };
+
+    card.addEventListener("mousemove", onMove, { passive: true });
+    card.addEventListener("mouseleave", onLeave);
+    return () => {
+      card.removeEventListener("mousemove", onMove);
+      card.removeEventListener("mouseleave", onLeave);
+    };
+  }, [baseTilt]);
 
   return (
     <div
+      ref={cardRef}
       className="project-card group relative flex flex-col"
-      style={{ transform: `rotate(${tilt}deg)` }}
+      style={{ transform: `rotate(${baseTilt}deg)`, transformStyle: "preserve-3d" }}
     >
       {/* Thumbnail with kotak frame */}
       <div className="relative mb-4" style={{ aspectRatio: "307 / 211" }}>

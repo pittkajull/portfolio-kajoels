@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -7,7 +7,7 @@ import SketchUnderline from "./SketchUnderline";
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
@@ -156,7 +156,28 @@ function ArticleListItem({ article, isActive, onClick }) {
 
 export default function ArticleSection() {
   const sectionRef = useRef(null);
+  const featuredRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const switchArticle = useCallback((i) => {
+    if (i === activeIndex || !featuredRef.current) return;
+    const featured = featuredRef.current;
+
+    gsap.to(featured, {
+      opacity: 0,
+      y: 20,
+      scale: 0.97,
+      duration: 0.25,
+      ease: "power2.in",
+      onComplete: () => {
+        setActiveIndex(i);
+        gsap.fromTo(featured,
+          { opacity: 0, y: -20, scale: 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power2.out" }
+        );
+      },
+    });
+  }, [activeIndex]);
 
   useGSAP(() => {
     // Title entrance
@@ -208,7 +229,7 @@ export default function ArticleSection() {
         {/* Two column layout */}
         <div className="article-content grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left: Featured article */}
-          <div className="lg:col-span-7">
+          <div ref={featuredRef} className="lg:col-span-7">
             <ArticleFeatured article={articles[activeIndex]} />
           </div>
 
@@ -219,7 +240,7 @@ export default function ArticleSection() {
                 key={article.title}
                 article={article}
                 isActive={i === activeIndex}
-                onClick={() => setActiveIndex(i)}
+                onClick={() => switchArticle(i)}
               />
             ))}
           </div>

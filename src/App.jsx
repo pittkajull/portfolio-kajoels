@@ -27,6 +27,23 @@ export default function App() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
+    // Section reveal animations (skip education — white curve transition looks broken with fade)
+    gsap.utils.toArray("section").forEach((section) => {
+      if (section.id === "education") return;
+      gsap.from(section, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 90%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      });
+    });
+
     navSections.forEach((id) => {
       ScrollTrigger.create({
         trigger: `#${id}`,
@@ -80,8 +97,8 @@ export default function App() {
       <ArticleSection />
 
       {/* Divider: dark → white */}
-      <div data-cursor-theme="dark" className="bg-black">
-        <svg viewBox="0 0 1440 120" className="w-full block" preserveAspectRatio="none">
+      <div data-cursor-theme="dark" className="bg-black footer-curve-wrap">
+        <svg viewBox="0 0 1440 120" className="footer-curve w-full block" preserveAspectRatio="none">
           <path d="M0,0 C480,100 960,100 1440,0 L1440,120 L0,120 Z" fill="white" />
         </svg>
       </div>

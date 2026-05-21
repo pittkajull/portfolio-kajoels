@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -104,6 +104,63 @@ export default function CertificationSection() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
 
+  // Drag-to-scroll on the horizontal track
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const onDown = (e) => {
+      isDragging = true;
+      startX = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.style.cursor = "grabbing";
+    };
+
+    const onMove = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      track.scrollLeft = scrollLeft - walk;
+    };
+
+    const onUp = () => {
+      isDragging = false;
+      track.style.cursor = "grab";
+    };
+
+    track.style.cursor = "grab";
+    track.style.overflowX = "auto";
+    track.style.scrollbarWidth = "none";
+
+    track.addEventListener("mousedown", onDown);
+    track.addEventListener("mousemove", onMove);
+    track.addEventListener("mouseup", onUp);
+    track.addEventListener("mouseleave", onUp);
+    if (isTouch) {
+      track.addEventListener("touchstart", onDown, { passive: true });
+      track.addEventListener("touchmove", onMove, { passive: false });
+      track.addEventListener("touchend", onUp);
+    }
+
+    return () => {
+      track.removeEventListener("mousedown", onDown);
+      track.removeEventListener("mousemove", onMove);
+      track.removeEventListener("mouseup", onUp);
+      track.removeEventListener("mouseleave", onUp);
+      if (isTouch) {
+        track.removeEventListener("touchstart", onDown);
+        track.removeEventListener("touchmove", onMove);
+        track.removeEventListener("touchend", onUp);
+      }
+    };
+  }, []);
+
   useGSAP(() => {
     // Title entrance
     gsap.from(".cert-title-img", {
@@ -173,7 +230,7 @@ export default function CertificationSection() {
       </div>
 
       {/* Horizontal scroll track */}
-      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-12 items-start select-none" style={{ width: "max-content" }}>
+      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-12 items-start select-none" style={{ width: "max-content", scrollbarWidth: "none", msOverflowStyle: "none" }}>
         {certifications.map((cert, i) => (
           <CertCard
             key={cert.title}

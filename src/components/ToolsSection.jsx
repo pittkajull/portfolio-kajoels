@@ -8,7 +8,7 @@ import SketchUnderline from './SketchUnderline';
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
@@ -113,6 +113,21 @@ export default function ToolsSection() {
     if (!grid) return;
 
     const cards = gsap.utils.toArray(".tool-card");
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isTouch) {
+      // Touch: tap to scale
+      const handleTap = (e) => {
+        const card = e.target.closest(".tool-card");
+        if (!card) return;
+        gsap.to(card, { scale: 1.3, duration: 0.2, ease: "power2.out" });
+        gsap.to(card, { scale: 1, duration: 0.4, ease: "elastic.out(1, 0.5)", delay: 0.15 });
+      };
+      grid.addEventListener("touchstart", handleTap, { passive: true });
+      return () => grid.removeEventListener("touchstart", handleTap);
+    }
+
+    // Desktop: proximity scale
     const maxDistance = 250;
     const maxScale = 1.6;
 

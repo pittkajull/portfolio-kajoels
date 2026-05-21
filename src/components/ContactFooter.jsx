@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 50, height = 66, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-6 h-8 sm:w-8 sm:h-10 md:w-10 md:h-14 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
@@ -23,6 +23,7 @@ function mixedFont(text) {
 const socialLinks = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/muhajir-amrullah-463915337", img: "/img/contactsection/linkedinblack.svg" },
   { name: "Instagram", url: "https://www.instagram.com/muhajiramrllh._", img: "/img/contactsection/igblack.svg" },
+  { name: "GitHub", url: "https://github.com/pittkajull", img: "/img/contactsection/githubblack.svg" },
   { name: "TikTok", url: "https://www.tiktok.com/@user0123405056789101112", img: "/img/contactsection/tiktokblack.svg" },
   { name: "Medium", url: "https://medium.com/@muhajiramrullahub", img: "/img/contactsection/mediumblack.svg" },
   { name: "Linktree", url: "https://linktr.ee/muhajiramrullah", img: "/img/contactsection/linktreeblack.svg" },
@@ -41,40 +42,66 @@ export default function ContactFooter() {
   const footerRef = useRef(null);
 
   useGSAP(() => {
+    const footer = footerRef.current;
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: footerRef.current,
+        trigger: footer,
         start: "top 80%",
         once: true,
       },
+      defaults: { ease: "back.out(2.5)" },
     });
 
+    // Letters bounce in — big overshoot
     tl.from(".contact-letter", {
-      y: 30,
+      y: 80,
       opacity: 0,
-      rotation: () => gsap.utils.random(-10, 10),
-      stagger: 0.05,
-      duration: 0.6,
-      ease: "back.out(1.7)",
+      scale: 0.3,
+      rotation: () => gsap.utils.random(-25, 25),
+      stagger: 0.06,
+      duration: 0.8,
+      ease: "back.out(3)",
     })
+    // Underline draws in
     .from(".contact-underline", {
       scaleX: 0,
       transformOrigin: "left center",
       duration: 0.6,
       ease: "power2.out",
-    }, "-=0.3")
+    }, "-=0.4")
+    // Grid sections bounce up with elastic
     .from(".contact-link", {
-      y: 20,
+      y: 60,
       opacity: 0,
-      duration: 0.5,
-      stagger: 0.08,
-      ease: "power2.out",
-    }, "-=0.2")
+      scale: 0.85,
+      duration: 0.8,
+      ease: "elastic.out(1.2, 0.4)",
+    }, "-=0.3")
+    // Footer text bounces in
     .from(".contact-footer-text", {
+      y: 30,
       opacity: 0,
-      duration: 0.4,
-      ease: "power2.out",
-    }, "-=0.2");
+      duration: 0.6,
+      ease: "back.out(2)",
+    }, "-=0.3");
+
+    // Bounce on the curved white divider above footer
+    const curve = document.querySelector(".footer-curve");
+    if (curve) {
+      gsap.from(curve, {
+        scaleY: 0.3,
+        scaleX: 1.08,
+        transformOrigin: "center bottom",
+        duration: 1,
+        ease: "elastic.out(1.2, 0.35)",
+        scrollTrigger: {
+          trigger: footer,
+          start: "top 90%",
+          once: true,
+        },
+      });
+    }
   }, { scope: footerRef });
 
   return (
@@ -113,20 +140,20 @@ export default function ContactFooter() {
               <img src="/img/logo/logohe1istblack.svg" alt="Logo" className="w-10 h-10 rounded-lg object-contain" />
               <span className="text-2xl text-black"><span className="font-heading">he</span><span className="font-sans">1</span><span className="font-heading">st</span></span>
             </div>
-            <p className="font-heading text-lg text-black/80 leading-relaxed">
+            <p className="font-heading text-sm sm:text-base md:text-lg text-black/80 leading-relaxed">
               A personal portfolio built to showcase my work, projects, and journey as a developer.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="font-heading text-xl text-black mb-3">Navigation</h4>
+            <h4 className="font-heading text-lg md:text-xl text-black mb-3">Navigation</h4>
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="font-heading text-lg text-black/80 hover:text-black transition-colors"
+                  className="font-heading text-sm sm:text-base md:text-lg text-black/80 hover:text-black transition-colors"
                 >
                   {link.label}
                 </a>
@@ -136,7 +163,7 @@ export default function ContactFooter() {
 
           {/* Social Media — icon only */}
           <div>
-            <h4 className="font-heading text-xl text-black mb-3">Social Media</h4>
+            <h4 className="font-heading text-lg md:text-xl text-black mb-3">Social Media</h4>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((link) => (
                 <a
@@ -155,12 +182,12 @@ export default function ContactFooter() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading text-xl text-black mb-3">Contact</h4>
+            <h4 className="font-heading text-lg md:text-xl text-black mb-3">Contact</h4>
             <div className="flex flex-col gap-2">
-              <a href="mailto:muhajiramrullahub@gmail.com" className="font-heading text-lg text-black/80 hover:text-black transition-colors">
+              <a href="mailto:muhajiramrullahub@gmail.com" className="font-heading text-sm sm:text-base md:text-lg text-black/80 hover:text-black transition-colors">
                 muhajiramrullahub@gmail.com
               </a>
-              <span className="font-heading text-lg text-black/80">
+              <span className="font-heading text-sm sm:text-base md:text-lg text-black/80">
                 Indonesia
               </span>
             </div>
@@ -169,10 +196,10 @@ export default function ContactFooter() {
 
         {/* Footer bottom */}
         <div className="contact-footer-text flex flex-col md:flex-row justify-between items-center gap-4">
-          <span className="text-black/80 text-xl tracking-widest">
+          <span className="text-black/80 text-sm sm:text-lg md:text-xl tracking-widest">
             {mixedFont("© 2026 He1st.")}
           </span>
-          <span className="text-black/80 text-xl tracking-widest">
+          <span className="text-black/80 text-sm sm:text-lg md:text-xl tracking-widest">
             {mixedFont("copyright protected by law.")}
           </span>
         </div>

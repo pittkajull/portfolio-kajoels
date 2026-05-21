@@ -1,5 +1,8 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
+
+const isTouchDevice = () =>
+  "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 const SOURCES = {
   arrowWhite: "/img/cursor/whitecursor.svg",
@@ -14,8 +17,11 @@ const HOTSPOTS = {
 };
 
 export default function CustomCursor() {
+  const [isTouch] = useState(() => isTouchDevice());
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
+
+  if (isTouch) return null;
   const isHovering = useRef(false);
   const isLight = useRef(false);
   const currentType = useRef("arrow");
@@ -85,13 +91,17 @@ export default function CustomCursor() {
     document.addEventListener("mousemove", onMouseMove, { passive: true });
     document.addEventListener("mouseover", onMouseOver, { passive: true });
     document.addEventListener("mouseout", onMouseOut, { passive: true });
-    document.body.style.cursor = "none";
+    // Hide cursor on all elements, not just body
+    const style = document.createElement("style");
+    style.id = "custom-cursor-style";
+    style.textContent = "*, *::before, *::after { cursor: none !important; }";
+    document.head.appendChild(style);
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseover", onMouseOver);
       document.removeEventListener("mouseout", onMouseOut);
-      document.body.style.cursor = "";
+      style.remove();
     };
   }, []);
 

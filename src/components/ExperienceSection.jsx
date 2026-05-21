@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -7,7 +7,7 @@ import SketchUnderline from './SketchUnderline';
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
@@ -48,7 +48,7 @@ const experienceData = [
     period: '2021 - 2023',
     description: 'Experienced in leadership, event management, and creative media through multiple large-scale university programs. Led teams, coordinated operations, managed events, and handled visual branding and execution. Recognized as Staff of The Month for active contribution and consistency. Developed strong skills in leadership, teamwork, communication, problem-solving, and project coordination.',
     logo: '/img/experiencesection/hmpsti.png',
-    logoSize: 'w-64 h-64',
+    logoSize: 'w-28 h-28 sm:w-40 sm:h-40 md:w-64 md:h-64',
     photos: Array.from({ length: 15 }, (_, i) => `/img/experiencesection/hmpsti${i + 1}.jpeg`),
   },
   {
@@ -56,7 +56,7 @@ const experienceData = [
     period: '2023 - Present',
     description: 'Experienced in human resources, leadership, and event management through university organizations. Contributed to internal development, coordinated cross-functional teams, led program execution, and supported creative and operational activities. Strengthened skills in communication, teamwork, adaptability, and project management.',
     logo: '/img/experiencesection/ub.png',
-    logoSize: 'w-48 h-48',
+    logoSize: 'w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48',
     photos: Array.from({ length: 10 }, (_, i) => `/img/experiencesection/em${i + 1}.jpeg`),
   },
   {
@@ -64,59 +64,145 @@ const experienceData = [
     period: '2024 - Present',
     description: 'Contributed as a Multimedia Staff by creating and managing visual and digital content for organizational activities and events. Responsible for design, documentation, visual branding, and content publishing across media platforms. Strengthened skills in creativity, visual communication, teamwork, time management, and digital media production in a dynamic environment.',
     logo: '/img/experiencesection/provoks.png',
-    logoSize: 'w-48 h-48',
+    logoSize: 'w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48',
     photos: ['/img/experiencesection/provoks1.jpeg'],
   },
 ];
 
 function PhotoCarousel({ photos }) {
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const visibleCount = 3;
+  const trackRef = useRef(null);
+  const indexRef = useRef(0);
+  const isAnimating = useRef(false);
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  useEffect(() => {
+    setVisibleCount(window.innerWidth < 640 ? 1 : 3);
+    // Set initial offset to skip the prepended clone (index 1 = first real photo)
+    if (trackRef.current) {
+      const container = trackRef.current.parentElement;
+      if (container) {
+        const containerWidth = container.offsetWidth;
+        const gap = 16;
+        const photoW = (containerWidth - gap * (visibleCount - 1)) / visibleCount;
+        gsap.set(trackRef.current, { x: -(photoW + gap) });
+      }
+    }
+  }, []);
+
+  const getPhotoWidth = () => {
+    const container = trackRef.current?.parentElement;
+    if (!container) return 0;
+    const containerWidth = container.offsetWidth;
+    const gap = 16;
+    return (containerWidth - gap * (visibleCount - 1)) / visibleCount;
+  };
+
+  const slideTo = (idx) => {
+    if (isAnimating.current || !trackRef.current) return;
+    isAnimating.current = true;
+
+    const photoW = getPhotoWidth();
+    const gap = 16;
+    // +1 because index 0 in extended array is the prepended clone
+    const offset = -((idx + 1) * (photoW + gap));
+
+    gsap.to(trackRef.current, {
+      x: offset,
+      duration: 0.5,
+      ease: "power2.inOut",
+      onComplete: () => {
+        indexRef.current = idx;
+        isAnimating.current = false;
+      },
+    });
+  };
 
   const handlePrev = () => {
-    setPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+    if (isAnimating.current) return;
+    const cur = indexRef.current;
+    if (cur <= 0) {
+      // Jump to clone of last, then animate to real last
+      const photoW = getPhotoWidth();
+      const gap = 16;
+      isAnimating.current = true;
+      gsap.set(trackRef.current, { x: -(0 * (photoW + gap)) });
+      gsap.to(trackRef.current, {
+        x: -((photos.length - 1 + 1) * (photoW + gap)),
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          indexRef.current = photos.length - 1;
+          isAnimating.current = false;
+        },
+      });
+    } else {
+      slideTo(cur - 1);
+    }
   };
 
   const handleNext = () => {
-    setPhotoIndex((prev) => (prev + 1) % photos.length);
+    if (isAnimating.current) return;
+    const cur = indexRef.current;
+    if (cur >= photos.length - 1) {
+      // Jump to clone of first, then animate to real second
+      const photoW = getPhotoWidth();
+      const gap = 16;
+      isAnimating.current = true;
+      gsap.set(trackRef.current, { x: -((photos.length + 1) * (photoW + gap)) });
+      gsap.to(trackRef.current, {
+        x: -(2 * (photoW + gap)),
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          indexRef.current = 1;
+          isAnimating.current = false;
+        },
+      });
+    } else {
+      slideTo(cur + 1);
+    }
   };
 
-  // Get 3 visible photos wrapping around
-  const visible = [];
-  for (let i = 0; i < visibleCount; i++) {
-    visible.push(photos[(photoIndex + i) % photos.length]);
-  }
+  // Build extended array for seamless looping: [last...photos...first]
+  const extended = [
+    photos[photos.length - 1],
+    ...photos,
+    photos[0],
+  ];
 
   return (
     <div className="exp-photos flex items-center gap-4">
       <button
         onClick={handlePrev}
-        className="w-12 h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
+        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
       >
         <img src="/img/experiencesection/kiri.svg" alt="Previous" className="w-5 h-5" />
       </button>
 
-      <div className="grid grid-cols-3 gap-4 flex-1">
-        {visible.map((photo, idx) => {
-          const frame = kotakFrames[(photoIndex + idx) % kotakFrames.length];
-          return (
-            <div key={idx} className="relative" style={{ aspectRatio: "307 / 211" }}>
+      <div className="flex-1 overflow-hidden">
+        <div ref={trackRef} className="flex gap-4">
+          {extended.map((photo, idx) => (
+            <div
+              key={idx}
+              className="relative flex-shrink-0"
+              style={{ width: `calc((100% - ${(visibleCount - 1) * 16}px) / ${visibleCount})`, aspectRatio: "307 / 211" }}
+            >
               <img
-                src={frame}
+                src={kotakFrames[idx % kotakFrames.length]}
                 alt=""
                 className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
               />
               <div className="absolute inset-0 flex items-center justify-center" style={{ padding: "12% 10%" }}>
-                <img src={photo} alt={`Photo ${idx + 1}`} className="w-full h-full object-cover rounded-lg" />
+                <img src={photo} alt="" className="w-full h-full object-cover rounded-lg" />
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
 
       <button
         onClick={handleNext}
-        className="w-12 h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
+        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
       >
         <img src="/img/experiencesection/kanan.svg" alt="Next" className="w-5 h-5" />
       </button>
@@ -222,7 +308,7 @@ export default function ExperienceSection() {
         {/* Timeline: garis + items */}
         <div className="relative flex">
           {/* Garis timeline on the left */}
-          <div className="relative flex-shrink-0 w-16">
+          <div className="relative flex-shrink-0 w-10 sm:w-14 md:w-16">
             <img
               src="/img/experiencesection/garis.svg"
               alt=""

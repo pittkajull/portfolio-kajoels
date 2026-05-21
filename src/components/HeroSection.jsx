@@ -62,11 +62,12 @@ export default function HeroSection() {
       delay: 0.3,
     });
 
-    // Subtitle entrance
-    gsap.from(".hero-subtitle", {
-      y: 30,
+    // Subtitle word-by-word reveal
+    gsap.from(".hero-word", {
+      y: 20,
       opacity: 0,
-      duration: 0.8,
+      stagger: 0.08,
+      duration: 0.5,
       ease: "power2.out",
       delay: 1.2,
     });
@@ -83,43 +84,45 @@ export default function HeroSection() {
     <section ref={sectionRef} id="hero" data-cursor-theme="dark" className="min-h-screen flex items-center justify-center relative px-8">
       <div className="hero-content max-w-6xl w-full text-center">
         {/* Decorative elements */}
-        <div className="hero-deco-hama absolute top-20 left-8 w-24 h-24 opacity-60">
+        <div className="hero-deco-hama absolute top-16 sm:top-20 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 opacity-60">
           <img src="/img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
         </div>
 
-        <div className="hero-deco-hiu absolute bottom-32 right-8 w-28 h-28 opacity-60">
+        <div className="hero-deco-hiu absolute bottom-24 sm:bottom-32 right-4 sm:right-8 w-20 sm:w-28 h-20 sm:h-28 opacity-60">
           <img src="/img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
         </div>
 
         {/* Main heading with SVG letters */}
         <div className="mb-8">
-          <div className="flex justify-center items-end gap-1 mb-6">
-            <img src="/img/herosection/P.svg" alt="P" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/r.svg" alt="r" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/t.svg" alt="t" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/f.svg" alt="f" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/l.svg" alt="l" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/i.svg" alt="i" className="hero-letter h-24 md:h-32" />
-            <img src="/img/herosection/O.svg" alt="o" className="hero-letter h-24 md:h-32" />
+          <div className="flex justify-center items-end gap-0.5 sm:gap-1 mb-6">
+            <img src="/img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/t.svg" alt="t" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/f.svg" alt="f" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="/img/herosection/O.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
           </div>
           <div className="flex justify-center mb-8">
             <img src="/img/herosection/garisbawah.svg" alt="underline" className="h-2" />
           </div>
         </div>
 
-        {/* Subtitle */}
-        <p className="hero-subtitle text-white/60 text-lg font-light tracking-wide max-w-2xl mx-auto mb-12">
-          Front-End Developer & Prompt Engineer
+        {/* Subtitle — word by word */}
+        <p className="hero-subtitle text-white/60 text-sm sm:text-lg font-light tracking-wide max-w-2xl mx-auto">
+          {"Front-End Developer & Prompt Engineer".split(" ").map((word, i) => (
+            <span key={i} className="hero-word inline-block mr-1.5">{word}</span>
+          ))}
         </p>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="hero-scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
-          </svg>
-        </div>
+      {/* Scroll indicator — outside hero-content so it sits at section bottom */}
+      <div className="hero-scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+        </svg>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,10 +8,45 @@ import SketchUnderline from './SketchUnderline';
 gsap.registerPlugin(ScrollTrigger);
 
 const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height} className={`inline-block ${className}`}>
+  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
     <image href={src} width={width} height={height} />
   </svg>
 );
+
+function MagneticButton({ children, className, onClick }) {
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    const btn = btnRef.current;
+    if (!btn) return;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (isTouch) return;
+
+    const onMove = (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: "power2.out" });
+    };
+
+    const onLeave = () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.4, ease: "elastic.out(1, 0.5)" });
+    };
+
+    btn.addEventListener("mousemove", onMove, { passive: true });
+    btn.addEventListener("mouseleave", onLeave);
+    return () => {
+      btn.removeEventListener("mousemove", onMove);
+      btn.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  return (
+    <button ref={btnRef} onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
+}
 
 const AboutMeText = () => (
   <div className="flex gap-2 items-end">
@@ -31,6 +66,22 @@ export default function AboutSection({ scrollTo }) {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
+    // Avatar clip-path reveal
+    gsap.fromTo(".about-avatar-img",
+      { clipPath: "inset(0 100% 0 0)" },
+      {
+        clipPath: "inset(0 0% 0 0)",
+        duration: 1.2,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: ".about-avatar",
+          start: "top 80%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      }
+    );
+
     // Avatar slides in from left
     gsap.from(".about-avatar", {
       x: -100,
@@ -112,8 +163,8 @@ export default function AboutSection({ scrollTo }) {
       <div ref={sectionRef} className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-stretch">
 
         {/* Portrait */}
-        <div className="about-avatar relative h-full min-h-[500px] flex items-end">
-          <img src="/img/aboutsection/kajul.svg" alt="Portrait" className="w-full h-full object-contain object-bottom" />
+        <div className="about-avatar relative h-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex items-end">
+          <img src="/img/aboutsection/kajul.svg" alt="Portrait" className="about-avatar-img w-full h-full object-contain object-bottom" />
         </div>
 
         {/* Text */}
@@ -137,7 +188,7 @@ export default function AboutSection({ scrollTo }) {
             <span className="text-white/90">Universitas Brawijaya</span>.
           </p>
           <div className="about-desc mt-8 flex gap-4">
-            <button
+            <MagneticButton
               onClick={() => scrollTo("Projects")}
               className="relative px-6 py-2 text-xs font-mono tracking-widest text-white group overflow-hidden"
             >
@@ -146,7 +197,7 @@ export default function AboutSection({ scrollTo }) {
                   stroke="white" strokeWidth="1" fill="none" strokeLinecap="round" />
               </svg>
               <span className="relative">VIEW WORK →</span>
-            </button>
+            </MagneticButton>
             <button
               onClick={() => scrollTo("Contact")}
               className="text-xs font-mono tracking-widest text-white/40 hover:text-white/80 transition-colors px-4 py-2"

@@ -61,12 +61,12 @@ export default function LoadingPage({ onComplete }) {
         <img
           src="/img/loading/monster.svg"
           alt=""
-          className="loading-deco absolute top-10 left-10 w-24 md:w-36"
+          className="loading-deco absolute top-6 left-4 sm:top-10 sm:left-10 w-16 sm:w-24 md:w-36"
         />
         <img
           src="/img/loading/cat.svg"
           alt=""
-          className="loading-deco absolute bottom-10 right-10 w-20 md:w-32"
+          className="loading-deco absolute bottom-6 right-4 sm:bottom-10 sm:right-10 w-14 sm:w-20 md:w-32"
         />
       </div>
 
@@ -74,7 +74,7 @@ export default function LoadingPage({ onComplete }) {
       <svg
         ref={svgRef}
         viewBox="0 0 1263 562"
-        className="relative z-20 w-[500px] md:w-[700px] h-auto"
+        className="relative z-20 w-[85vw] max-w-[700px] h-auto"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

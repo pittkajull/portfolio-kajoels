@@ -11,13 +11,17 @@
   --font-heading: 'Handodle', system-ui, sans-serif;
 }
 
-body {
-  margin: 0;
-  cursor: none;
+html {
+  scroll-behavior: smooth;
 }
 
-*,
-*::before,
-*::after {
-  cursor: none !important;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar for drag-scroll elements */
+::-webkit-scrollbar {
+  display: none;
 }
