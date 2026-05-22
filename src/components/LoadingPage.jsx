@@ -7,6 +7,7 @@ export default function LoadingPage({ onComplete }) {
 
   useGSAP(() => {
     gsap.set(".loading-deco", { scale: 0, opacity: 0 });
+    gsap.set(".loading-text", { scale: 0.5, opacity: 0 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -19,14 +20,20 @@ export default function LoadingPage({ onComplete }) {
       },
     });
 
-    // 1. Loading text pop in
-    tl.from(".loading-text", {
-      scale: 0.5,
-      opacity: 0,
+    // 1. White → Black background transition
+    tl.to(overlayRef.current, {
+      backgroundColor: "#000000",
+      duration: 0.8,
+      ease: "power2.inOut",
+    })
+    // 2. Loading text pop in
+    .to(".loading-text", {
+      scale: 1,
+      opacity: 1,
       duration: 0.8,
       ease: "back.out(2)",
     })
-    // 2. Decorations pop in
+    // 3. Decorations pop in
     .to(".loading-deco", {
       scale: 1,
       opacity: 1,
@@ -34,14 +41,14 @@ export default function LoadingPage({ onComplete }) {
       duration: 0.6,
       ease: "back.out(1.7)",
     }, "-=0.4")
-    // 3. Hold briefly
+    // 4. Hold briefly
     .to({}, { duration: 0.5 });
   }, { scope: overlayRef });
 
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden bg-white"
     >
       {/* Decorations */}
       <div className="absolute inset-0 pointer-events-none z-10">

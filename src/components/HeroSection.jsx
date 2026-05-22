@@ -103,7 +103,7 @@ export default function HeroSection() {
             <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
             <img src="./img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
             <img src="./img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/O.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
           </div>
           <div className="flex justify-center mb-8">
             <img src="./img/herosection/garisbawah.svg" alt="underline" className="h-2" />
