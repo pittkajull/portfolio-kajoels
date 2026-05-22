@@ -2,12 +2,23 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const loadingLetters = [
+  { src: "./img/loading/l.svg", alt: "l" },
+  { src: "./img/loading/o.svg", alt: "o" },
+  { src: "./img/loading/dapits.svg", alt: "a" },
+  { src: "./img/loading/d.svg", alt: "d" },
+  { src: "./img/loading/i-1.svg", alt: "i" },
+  { src: "./img/loading/i.svg", alt: "i" },
+  { src: "./img/loading/n.svg", alt: "n" },
+  { src: "./img/loading/g.svg", alt: "g" },
+];
+
 export default function LoadingPage({ onComplete }) {
   const overlayRef = useRef(null);
 
   useGSAP(() => {
+    gsap.set(".loading-letter", { y: 40, opacity: 0, rotation: 0, scale: 0.5 });
     gsap.set(".loading-deco", { scale: 0, opacity: 0 });
-    gsap.set(".loading-text", { scale: 0.5, opacity: 0 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -26,12 +37,15 @@ export default function LoadingPage({ onComplete }) {
       duration: 0.8,
       ease: "power2.inOut",
     })
-    // 2. Loading text pop in
-    .to(".loading-text", {
-      scale: 1,
+    // 2. Letters pop in one by one
+    .to(".loading-letter", {
+      y: 0,
       opacity: 1,
-      duration: 0.8,
-      ease: "back.out(2)",
+      scale: 1,
+      rotation: () => gsap.utils.random(-15, 15),
+      stagger: 0.08,
+      duration: 0.6,
+      ease: "back.out(1.7)",
     })
     // 3. Decorations pop in
     .to(".loading-deco", {
@@ -64,12 +78,17 @@ export default function LoadingPage({ onComplete }) {
         />
       </div>
 
-      {/* Loading text */}
-      <img
-        src="./img/loading/loadingss.svg"
-        alt="Loading"
-        className="loading-text relative z-20 w-[85vw] max-w-[700px] h-auto"
-      />
+      {/* Loading letters */}
+      <div className="loading-letters relative z-20 flex gap-1 sm:gap-2 items-end">
+        {loadingLetters.map((letter) => (
+          <img
+            key={letter.alt + letter.src}
+            src={letter.src}
+            alt={letter.alt}
+            className="loading-letter w-10 h-14 sm:w-14 sm:h-20 md:w-16 md:h-24"
+          />
+        ))}
+      </div>
     </div>
   );
 }
