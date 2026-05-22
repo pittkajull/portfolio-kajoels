@@ -48,14 +48,8 @@ export default function LoadingPage({ onComplete }) {
       },
     });
 
-    // 1. White → Black background
-    tl.to(overlayRef.current, {
-      backgroundColor: "#000000",
-      duration: 0.8,
-      ease: "power2.inOut",
-    })
-    // 2. Draw each path progressively
-    .to(paths, {
+    // 1. Draw each path progressively
+    tl.to(paths, {
       strokeDashoffset: 0,
       duration: 1.5,
       stagger: 0.1,
@@ -76,7 +70,7 @@ export default function LoadingPage({ onComplete }) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-white"
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black"
     >
       {/* Decorations */}
       <img
