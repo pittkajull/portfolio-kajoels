@@ -1,24 +1,33 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const loadingLetters = [
-  { src: "./img/loading/l.svg", alt: "l" },
-  { src: "./img/loading/o.svg", alt: "o" },
-  { src: "./img/loading/dapits.svg", alt: "a" },
-  { src: "./img/loading/d.svg", alt: "d" },
-  { src: "./img/loading/i-1.svg", alt: "i" },
-  { src: "./img/loading/i.svg", alt: "i" },
-  { src: "./img/loading/n.svg", alt: "n" },
-  { src: "./img/loading/g.svg", alt: "g" },
-];
-
 export default function LoadingPage({ onComplete }) {
   const overlayRef = useRef(null);
+  const svgRef = useRef(null);
+  const [svgContent, setSvgContent] = useState("");
+
+  useEffect(() => {
+    fetch("./img/loading/loadingss.svg")
+      .then((res) => res.text())
+      .then(setSvgContent);
+  }, []);
 
   useGSAP(() => {
-    gsap.set(".loading-letter", { y: 40, opacity: 0, rotation: 0, scale: 0.5 });
+    const svg = svgRef.current;
+    if (!svg || !svgContent) return;
+
+    const paths = svg.querySelectorAll("path");
     gsap.set(".loading-deco", { scale: 0, opacity: 0 });
+
+    // Set up stroke-dasharray for draw effect
+    paths.forEach((path) => {
+      const length = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length,
+      });
+    });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -31,21 +40,18 @@ export default function LoadingPage({ onComplete }) {
       },
     });
 
-    // 1. White → Black background transition
+    // 1. White → Black background
     tl.to(overlayRef.current, {
       backgroundColor: "#000000",
       duration: 0.8,
       ease: "power2.inOut",
     })
-    // 2. Letters pop in one by one
-    .to(".loading-letter", {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      rotation: () => gsap.utils.random(-15, 15),
-      stagger: 0.08,
-      duration: 0.6,
-      ease: "back.out(1.7)",
+    // 2. Draw each path progressively
+    .to(paths, {
+      strokeDashoffset: 0,
+      duration: 1.5,
+      stagger: 0.1,
+      ease: "power2.inOut",
     })
     // 3. Decorations pop in
     .to(".loading-deco", {
@@ -54,10 +60,10 @@ export default function LoadingPage({ onComplete }) {
       stagger: 0.12,
       duration: 0.6,
       ease: "back.out(1.7)",
-    }, "-=0.4")
+    }, "-=0.8")
     // 4. Hold briefly
     .to({}, { duration: 0.5 });
-  }, { scope: overlayRef });
+  }, { scope: overlayRef, dependencies: [svgContent] });
 
   return (
     <div
@@ -78,17 +84,12 @@ export default function LoadingPage({ onComplete }) {
         />
       </div>
 
-      {/* Loading letters */}
-      <div className="loading-letters relative z-20 flex gap-1 sm:gap-2 items-end">
-        {loadingLetters.map((letter) => (
-          <img
-            key={letter.alt + letter.src}
-            src={letter.src}
-            alt={letter.alt}
-            className="loading-letter w-10 h-14 sm:w-14 sm:h-20 md:w-16 md:h-24"
-          />
-        ))}
-      </div>
+      {/* Loading SVG inline for stroke-draw animation */}
+      <div
+        ref={svgRef}
+        className="loading-svg relative z-20 w-[85vw] max-w-[700px]"
+        dangerouslySetInnerHTML={{ __html: svgContent }}
+      />
     </div>
   );
 }
