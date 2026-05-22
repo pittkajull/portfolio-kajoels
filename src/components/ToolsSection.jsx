@@ -49,7 +49,7 @@ const toolsData = [
 
 function ToolCard({ name, icon, category }) {
   return (
-    <div className="tool-card flex flex-col items-center gap-4 p-6">
+    <div className="tool-card flex flex-col items-center gap-4 p-3 sm:p-6">
       <div className="w-16 h-16 flex items-center justify-center">
         <img src={icon} alt={name} className="w-full h-full object-contain" />
       </div>
@@ -178,7 +178,7 @@ export default function ToolsSection() {
         </div>
         <SketchUnderline width={240} />
 
-        <div ref={gridRef} className="mt-12 grid grid-cols-3 md:grid-cols-5 gap-8">
+        <div ref={gridRef} className="mt-12 grid grid-cols-3 md:grid-cols-5 gap-4 sm:gap-8">
           {toolsData.map((tool) => (
             <ToolCard key={tool.name} {...tool} />
           ))}

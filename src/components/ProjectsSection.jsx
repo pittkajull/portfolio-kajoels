@@ -197,7 +197,7 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, index }
     <div
       ref={cardRef}
       className="project-card group relative flex flex-col"
-      style={{ transform: `rotate(${baseTilt}deg)`, transformStyle: "preserve-3d" }}
+      style={{ transform: `rotate(${window.innerWidth < 768 ? 0 : baseTilt}deg)`, transformStyle: "preserve-3d" }}
     >
       {/* Thumbnail with kotak frame */}
       <div className="relative mb-4" style={{ aspectRatio: "307 / 211" }}>

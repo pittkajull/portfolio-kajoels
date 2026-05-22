@@ -94,7 +94,7 @@ export default function HeroSection() {
 
         {/* Main heading with SVG letters */}
         <div className="mb-8">
-          <div className="flex justify-center items-end gap-0.5 sm:gap-1 mb-6">
+          <div className="flex justify-center items-end gap-0.5 sm:gap-1 mb-6 overflow-hidden">
             <img src="./img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
             <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
             <img src="./img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />

@@ -38,12 +38,12 @@ export default function Navbar({ active, onNav }) {
   useGSAP(() => {
     if (menuOpen) {
       gsap.fromTo(menuRef.current,
-        { clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" },
-        { clipPath: "circle(150% at calc(100% - 2.5rem) 2.5rem)", duration: 0.6, ease: "power3.inOut" }
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }
       );
       gsap.fromTo(linksRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.06, duration: 0.4, ease: "power2.out", delay: 0.2 }
+        { y: 0, opacity: 1, stagger: 0.06, duration: 0.4, ease: "power2.out", delay: 0.1 }
       );
     }
   }, { dependencies: [menuOpen] });
@@ -99,7 +99,6 @@ export default function Navbar({ active, onNav }) {
         <div
           ref={menuRef}
           className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-6 md:hidden"
-          style={{ clipPath: "circle(0% at calc(100% - 2.5rem) 2.5rem)" }}
         >
           {navLinks.map((link, i) => (
             <button

@@ -20,13 +20,12 @@ export default function CustomCursor() {
   const [isTouch] = useState(() => isTouchDevice());
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
-
-  if (isTouch) return null;
   const isHovering = useRef(false);
   const isLight = useRef(false);
   const currentType = useRef("arrow");
 
   useEffect(() => {
+    if (isTouch) return;
     const wrapper = wrapperRef.current;
     const img = imgRef.current;
     if (!wrapper || !img) return;
@@ -103,7 +102,9 @@ export default function CustomCursor() {
       document.removeEventListener("mouseout", onMouseOut);
       style.remove();
     };
-  }, []);
+  }, [isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <div

@@ -215,7 +215,7 @@ export default function EducationSection() {
 
       {/* Grid: kucing mentok kiri bawah, deskripsi di kanan */}
       <div className="w-full grid lg:grid-cols-[1fr_1fr] items-end">
-        <div className="relative h-[200px] sm:h-[350px] lg:h-[600px] overflow-hidden">
+        <div className="relative h-[200px] sm:h-[280px] md:h-[400px] lg:h-[600px] overflow-hidden">
           <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-contain object-bottom lg:object-cover" />
         </div>
 

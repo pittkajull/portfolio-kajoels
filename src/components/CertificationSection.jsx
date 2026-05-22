@@ -68,7 +68,7 @@ function CertCard({ title, desc, image, frame, index, portrait }) {
   return (
     <div
       className="cert-card flex-shrink-0 cursor-default group"
-      style={{ width: 300, transform: `rotate(${tilt}deg)` }}
+      style={{ width: window.innerWidth < 640 ? 260 : 300, transform: `rotate(${tilt}deg)` }}
     >
       <div className="relative" style={{ aspectRatio: portrait ? "211 / 307" : "307 / 211" }}>
         <img
@@ -104,13 +104,16 @@ export default function CertificationSection() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
 
-  // Drag-to-scroll on the horizontal track (desktop only, mobile uses native swipe)
+  // Drag-to-scroll on the horizontal track
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) return;
 
+    // Always enable native horizontal scroll
+    track.style.overflowX = "auto";
+    track.style.scrollbarWidth = "none";
+
+    // Desktop: add mouse drag-to-scroll
     let isDragging = false;
     let startX = 0;
     let scrollLeft = 0;
@@ -135,9 +138,6 @@ export default function CertificationSection() {
     };
 
     track.style.cursor = "grab";
-    track.style.overflowX = "auto";
-    track.style.scrollbarWidth = "none";
-
     track.addEventListener("mousedown", onDown);
     track.addEventListener("mousemove", onMove);
     track.addEventListener("mouseup", onUp);
@@ -228,7 +228,7 @@ export default function CertificationSection() {
       </div>
 
       {/* Horizontal scroll track */}
-      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-12 items-start select-none" style={{ width: "max-content", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-6 md:py-12 items-start select-none" style={{ width: "max-content", scrollbarWidth: "none", msOverflowStyle: "none" }}>
         {certifications.map((cert, i) => (
           <CertCard
             key={cert.title}

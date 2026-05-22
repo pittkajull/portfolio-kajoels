@@ -76,17 +76,22 @@ function PhotoCarousel({ photos }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
-    const count = window.innerWidth < 640 ? 1 : 3;
-    setVisibleCount(count);
-    if (trackRef.current) {
-      const container = trackRef.current.parentElement;
-      if (container) {
-        const containerWidth = container.offsetWidth;
-        const gap = 16;
-        const photoW = (containerWidth - gap * (count - 1)) / count;
-        gsap.set(trackRef.current, { x: -(photoW + gap) });
+    const updateLayout = () => {
+      const count = window.innerWidth < 640 ? 1 : 3;
+      setVisibleCount(count);
+      if (trackRef.current) {
+        const container = trackRef.current.parentElement;
+        if (container) {
+          const containerWidth = container.offsetWidth;
+          const gap = 16;
+          const photoW = (containerWidth - gap * (count - 1)) / count;
+          gsap.set(trackRef.current, { x: -(photoW + gap) });
+        }
       }
-    }
+    };
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
   const getPhotoWidth = () => {
@@ -182,7 +187,7 @@ function PhotoCarousel({ photos }) {
                 alt=""
                 className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
               />
-              <div className="absolute inset-0 flex items-center justify-center" style={{ padding: window.innerWidth < 640 ? "8% 7%" : "12% 10%" }}>
+              <div className="absolute inset-0 flex items-center justify-center p-[8%] sm:p-[10%] md:p-[12%]">
                 <img src={photo} alt="" className="w-full h-full object-cover rounded-lg" />
               </div>
             </div>
@@ -307,7 +312,7 @@ export default function ExperienceSection() {
           </div>
 
           {/* Experience items */}
-          <div className="flex-1 space-y-20">
+          <div className="flex-1 space-y-10 md:space-y-20">
             {experienceData.map((exp) => (
               <div key={exp.title} className="exp-item">
                 <ExperienceItem {...exp} />
