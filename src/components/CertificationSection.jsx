@@ -179,6 +179,7 @@ export default function CertificationSection() {
           start: "top top",
           end: () => `+=${totalScroll}`,
           pin: true,
+          pinSpacing: true,
           scrub: 1,
           invalidateOnRefresh: true,
         },

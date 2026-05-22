@@ -87,6 +87,7 @@ const ongoingProjects = [
     github: "https://github.com/pittkajull/StockPP.git",
     demo: "#",
     progress: 70,
+    target: "Q3 2026",
   },
   {
     title: "SIMS",
@@ -96,6 +97,7 @@ const ongoingProjects = [
     github: "https://github.com/pittkajull/smart-infusion.git",
     demo: "#",
     progress: 50,
+    target: "Q2 2026",
   },
 ];
 
@@ -151,7 +153,7 @@ function ProgressBar({ percent }) {
   );
 }
 
-function ProjectCard({ title, desc, image, tech, github, demo, progress, index }) {
+function ProjectCard({ title, desc, image, tech, github, demo, progress, target, index }) {
   const baseTilt = ((index % 3) - 1) * 1;
   const frame = kotakFrames[index % kotakFrames.length];
   const cardRef = useRef(null);
@@ -236,6 +238,15 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, index }
       {progress !== undefined && (
         <div className="mb-3">
           <ProgressBar percent={progress} />
+          {target && (
+            <div className="flex items-center gap-1.5 mt-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/30">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span className="text-white/30 text-[10px]">{mixedFont(`Complete target ${target}`)}</span>
+            </div>
+          )}
         </div>
       )}
 
@@ -296,7 +307,7 @@ export default function ProjectsSection() {
       scrollTrigger: {
         trigger: ".project-title-img",
         start: "top 85%",
-        toggleActions: "play none none reverse",
+        once: true,
       },
     });
 
@@ -310,7 +321,7 @@ export default function ProjectsSection() {
       scrollTrigger: {
         trigger: ".project-subtitle",
         start: "top 85%",
-        toggleActions: "play none none reverse",
+        once: true,
       },
     });
 
@@ -324,7 +335,7 @@ export default function ProjectsSection() {
       scrollTrigger: {
         trigger: ".project-card",
         start: "top 85%",
-        toggleActions: "play none none reverse",
+        once: true,
       },
     });
   }, { scope: sectionRef });
