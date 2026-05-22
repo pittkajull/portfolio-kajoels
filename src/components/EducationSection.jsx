@@ -76,9 +76,11 @@ export default function EducationSection() {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
-    // Cat image parallax — moves up slightly as you scroll past
+    const isMobile = window.innerWidth < 1024;
+
+    // Cat image parallax — less on mobile
     gsap.to(".edu-cat", {
-      y: -80,
+      y: isMobile ? -20 : -80,
       ease: "none",
       scrollTrigger: {
         trigger: ".edu-cat",
@@ -213,8 +215,8 @@ export default function EducationSection() {
 
       {/* Grid: kucing mentok kiri bawah, deskripsi di kanan */}
       <div className="w-full grid lg:grid-cols-[1fr_1fr] items-end">
-        <div className="relative h-[280px] sm:h-[400px] lg:h-[600px] overflow-hidden">
-          <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-cover object-bottom" />
+        <div className="relative h-[200px] sm:h-[350px] lg:h-[600px] overflow-hidden">
+          <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-contain object-bottom lg:object-cover" />
         </div>
 
         <div className="space-y-10 px-8 md:px-20 py-10">
