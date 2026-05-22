@@ -142,7 +142,7 @@ function ProgressBar({ percent }) {
   return (
     <div ref={countRef}>
       <img
-        src={`./img/projectsection/bar${closest}p.svg`}
+        src={`./img/projectsection/bar${closest}%.svg`}
         alt={`${percent}% progress`}
         className="w-full h-auto"
       />
