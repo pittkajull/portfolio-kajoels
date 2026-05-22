@@ -35,18 +35,12 @@ export default function Navbar({ active, onNav }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useGSAP(() => {
-    if (menuOpen) {
-      gsap.fromTo(menuRef.current,
-        { opacity: 0, scale: 0.95 },
-        { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }
-      );
-      gsap.fromTo(linksRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.06, duration: 0.4, ease: "power2.out", delay: 0.1 }
-      );
-    }
-  }, { dependencies: [menuOpen] });
+  useEffect(() => {
+    if (!menuOpen) return;
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const handleNav = (link) => {
     onNav(link);
@@ -60,7 +54,12 @@ export default function Navbar({ active, onNav }) {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 py-4 md:py-5"
         style={{ background: "linear-gradient(to bottom, #000 60%, transparent)", willChange: "transform" }}
       >
-        <span className="text-white font-mono text-xs md:text-sm tracking-widest opacity-70">PORTFOLIO</span>
+        <div className="flex items-center gap-2">
+          <img src="./img/logo/logohe1istwhite.svg" alt="Logo" className="w-6 h-6 md:w-7 md:h-7" />
+          <span className="text-white text-xs md:text-sm tracking-widest opacity-70">
+            <span className="font-heading">he</span><span className="font-sans">1</span><span className="font-heading">st</span>
+          </span>
+        </div>
 
         {/* Desktop nav */}
         <ul className="hidden md:flex gap-8">
@@ -85,34 +84,31 @@ export default function Navbar({ active, onNav }) {
         {/* Hamburger button */}
         <button
           onClick={() => setMenuOpen(prev => !prev)}
-          className="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-1.5"
+          className="md:hidden relative z-50 w-8 h-8"
           aria-label="Toggle menu"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <img src="./navbarsection/hamburgermenu.svg" alt="Menu" className="w-full h-full" />
         </button>
       </nav>
 
       {/* Mobile menu overlay */}
-      {menuOpen && (
-        <div
-          ref={menuRef}
-          className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-6 md:hidden"
-        >
-          {navLinks.map((link, i) => (
-            <button
-              key={link}
-              ref={el => linksRef.current[i] = el}
-              onClick={() => handleNav(link)}
-              className={`font-mono text-lg tracking-widest transition-colors duration-200
-                ${active === link ? "text-white" : "text-white/40"}`}
-            >
-              {link}
-            </button>
-          ))}
-        </div>
-      )}
+      <div
+        ref={menuRef}
+        className={`fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-6 md:hidden transition-all duration-300 ${menuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
+      >
+        {navLinks.map((link, i) => (
+          <button
+            key={link}
+            onClick={() => handleNav(link)}
+            className={`font-heading text-lg tracking-widest transition-all duration-300
+              ${active === link ? "text-white" : "text-white/40"}
+              ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            style={{ transitionDelay: menuOpen ? `${i * 60}ms` : "0ms" }}
+          >
+            {link}
+          </button>
+        ))}
+      </div>
     </>
   );
 }
