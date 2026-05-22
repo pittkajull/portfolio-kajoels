@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -71,83 +71,131 @@ const experienceData = [
 
 function PhotoCarousel({ photos }) {
   const trackRef = useRef(null);
+  const indexRef = useRef(0);
+  const isAnimating = useRef(false);
+  const [visibleCount, setVisibleCount] = useState(3);
 
-  // Drag-to-scroll
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeft = 0;
-
-    const onDown = (e) => {
-      isDragging = true;
-      startX = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-      track.style.cursor = "grabbing";
-    };
-
-    const onMove = (e) => {
-      if (!isDragging) return;
-      const x = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      track.scrollLeft = scrollLeft - walk;
-    };
-
-    const onUp = () => {
-      isDragging = false;
-      track.style.cursor = "grab";
-    };
-
-    track.style.cursor = "grab";
-    track.style.overflowX = "auto";
-    track.style.scrollbarWidth = "none";
-    track.style.webkitOverflowScrolling = "touch";
-
-    track.addEventListener("mousedown", onDown);
-    track.addEventListener("mousemove", onMove);
-    track.addEventListener("mouseup", onUp);
-    track.addEventListener("mouseleave", onUp);
-    track.addEventListener("touchstart", onDown, { passive: true });
-    track.addEventListener("touchmove", onMove, { passive: true });
-    track.addEventListener("touchend", onUp);
-
-    return () => {
-      track.removeEventListener("mousedown", onDown);
-      track.removeEventListener("mousemove", onMove);
-      track.removeEventListener("mouseup", onUp);
-      track.removeEventListener("mouseleave", onUp);
-      track.removeEventListener("touchstart", onDown);
-      track.removeEventListener("touchmove", onMove);
-      track.removeEventListener("touchend", onUp);
-    };
+    const count = window.innerWidth < 640 ? 1 : 3;
+    setVisibleCount(count);
+    if (trackRef.current) {
+      const container = trackRef.current.parentElement;
+      if (container) {
+        const containerWidth = container.offsetWidth;
+        const gap = 16;
+        const photoW = (containerWidth - gap * (count - 1)) / count;
+        gsap.set(trackRef.current, { x: -(photoW + gap) });
+      }
+    }
   }, []);
 
+  const getPhotoWidth = () => {
+    const container = trackRef.current?.parentElement;
+    if (!container) return 0;
+    const containerWidth = container.offsetWidth;
+    const gap = 16;
+    return (containerWidth - gap * (visibleCount - 1)) / visibleCount;
+  };
+
+  const slideTo = (idx) => {
+    if (isAnimating.current || !trackRef.current) return;
+    isAnimating.current = true;
+    const photoW = getPhotoWidth();
+    const gap = 16;
+    const offset = -((idx + 1) * (photoW + gap));
+    gsap.to(trackRef.current, {
+      x: offset,
+      duration: 0.5,
+      ease: "power2.inOut",
+      onComplete: () => {
+        indexRef.current = idx;
+        isAnimating.current = false;
+      },
+    });
+  };
+
+  const handlePrev = () => {
+    if (isAnimating.current) return;
+    const cur = indexRef.current;
+    if (cur <= 0) {
+      const photoW = getPhotoWidth();
+      const gap = 16;
+      isAnimating.current = true;
+      gsap.set(trackRef.current, { x: -(0 * (photoW + gap)) });
+      gsap.to(trackRef.current, {
+        x: -((photos.length - 1 + 1) * (photoW + gap)),
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          indexRef.current = photos.length - 1;
+          isAnimating.current = false;
+        },
+      });
+    } else {
+      slideTo(cur - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (isAnimating.current) return;
+    const cur = indexRef.current;
+    if (cur >= photos.length - 1) {
+      const photoW = getPhotoWidth();
+      const gap = 16;
+      isAnimating.current = true;
+      gsap.set(trackRef.current, { x: -((photos.length + 1) * (photoW + gap)) });
+      gsap.to(trackRef.current, {
+        x: -(2 * (photoW + gap)),
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => {
+          indexRef.current = 1;
+          isAnimating.current = false;
+        },
+      });
+    } else {
+      slideTo(cur + 1);
+    }
+  };
+
+  const extended = [photos[photos.length - 1], ...photos, photos[0]];
+
   return (
-    <div className="exp-photos">
-      <div
-        ref={trackRef}
-        className="flex gap-4 select-none"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+    <div className="exp-photos flex items-center gap-4">
+      <button
+        onClick={handlePrev}
+        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
       >
-        {photos.map((photo, idx) => (
-          <div
-            key={idx}
-            className="relative flex-shrink-0 w-[260px] sm:w-[280px] md:w-[300px]"
-            style={{ aspectRatio: "307 / 211" }}
-          >
-            <img
-              src={kotakFrames[idx % kotakFrames.length]}
-              alt=""
-              className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
-            />
-            <div className="absolute inset-0 flex items-center justify-center" style={{ padding: "12% 10%" }}>
-              <img src={photo} alt="" className="w-full h-full object-cover rounded-lg" />
+        <img src="./img/experiencesection/kiri.svg" alt="Previous" className="w-5 h-5" />
+      </button>
+
+      <div className="flex-1 overflow-hidden">
+        <div ref={trackRef} className="flex gap-4">
+          {extended.map((photo, idx) => (
+            <div
+              key={idx}
+              className="relative flex-shrink-0"
+              style={{ width: `calc((100% - ${(visibleCount - 1) * 16}px) / ${visibleCount})`, aspectRatio: "307 / 211" }}
+            >
+              <img
+                src={kotakFrames[idx % kotakFrames.length]}
+                alt=""
+                className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
+              />
+              <div className="absolute inset-0 flex items-center justify-center" style={{ padding: window.innerWidth < 640 ? "8% 7%" : "12% 10%" }}>
+                <img src={photo} alt="" className="w-full h-full object-cover rounded-lg" />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <button
+        onClick={handleNext}
+        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/10 flex items-center justify-center transition hover:bg-white/15 flex-shrink-0"
+      >
+        <img src="./img/experiencesection/kanan.svg" alt="Next" className="w-5 h-5" />
+      </button>
     </div>
   );
 }

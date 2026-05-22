@@ -187,8 +187,20 @@ export default function ContactFooter() {
               <a href="mailto:muhajiramrullahub@gmail.com" className="font-heading text-sm sm:text-base md:text-lg text-black/80 hover:text-black transition-colors">
                 muhajiramrullahub@gmail.com
               </a>
+              <a
+                href="./cv/MuhajirAmrullah_CV.pdf"
+                download="MuhajirAmrullah_CV.pdf"
+                className="inline-flex items-center gap-2 mt-2 px-4 py-2 w-fit border border-black/20 rounded-lg text-sm sm:text-base font-heading text-black/80 hover:text-black hover:border-black/40 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download CV
+              </a>
               <span className="font-heading text-sm sm:text-base md:text-lg text-black/80">
-                Indonesia
+                Serang city, Banten, Indonesia
               </span>
             </div>
           </div>
