@@ -104,11 +104,12 @@ export default function CertificationSection() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
 
-  // Drag-to-scroll on the horizontal track
+  // Drag-to-scroll on the horizontal track (desktop only, mobile uses native swipe)
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
 
     let isDragging = false;
     let startX = 0;
@@ -116,15 +117,14 @@ export default function CertificationSection() {
 
     const onDown = (e) => {
       isDragging = true;
-      startX = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
+      startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
       track.style.cursor = "grabbing";
     };
 
     const onMove = (e) => {
       if (!isDragging) return;
-      e.preventDefault();
-      const x = (e.touches ? e.touches[0].pageX : e.pageX) - track.offsetLeft;
+      const x = e.pageX - track.offsetLeft;
       const walk = (x - startX) * 1.5;
       track.scrollLeft = scrollLeft - walk;
     };
@@ -142,22 +142,12 @@ export default function CertificationSection() {
     track.addEventListener("mousemove", onMove);
     track.addEventListener("mouseup", onUp);
     track.addEventListener("mouseleave", onUp);
-    if (isTouch) {
-      track.addEventListener("touchstart", onDown, { passive: true });
-      track.addEventListener("touchmove", onMove, { passive: false });
-      track.addEventListener("touchend", onUp);
-    }
 
     return () => {
       track.removeEventListener("mousedown", onDown);
       track.removeEventListener("mousemove", onMove);
       track.removeEventListener("mouseup", onUp);
       track.removeEventListener("mouseleave", onUp);
-      if (isTouch) {
-        track.removeEventListener("touchstart", onDown);
-        track.removeEventListener("touchmove", onMove);
-        track.removeEventListener("touchend", onUp);
-      }
     };
   }, []);
 
@@ -175,22 +165,30 @@ export default function CertificationSection() {
       },
     });
 
-    // Pin + scrub horizontal scroll
+    // Pin + scrub horizontal scroll (desktop only)
     const track = trackRef.current;
-    const totalScroll = track.scrollWidth - window.innerWidth;
+    const isMobile = window.innerWidth < 768;
 
-    gsap.to(track, {
-      x: () => -totalScroll,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: () => `+=${totalScroll}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+    if (!isMobile) {
+      const totalScroll = track.scrollWidth - window.innerWidth;
+      gsap.to(track, {
+        x: () => -totalScroll,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: () => `+=${totalScroll}`,
+          pin: true,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    } else {
+      // Mobile: enable native horizontal scroll
+      track.style.overflowX = "auto";
+      track.style.webkitOverflowScrolling = "touch";
+      track.style.scrollbarWidth = "none";
+    }
 
     // Cards entrance
     gsap.from(".cert-card", {
