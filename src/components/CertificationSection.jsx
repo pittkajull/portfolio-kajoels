@@ -206,7 +206,7 @@ export default function CertificationSection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="certification" data-cursor-theme="dark" className="relative bg-black text-white overflow-hidden">
+    <section ref={sectionRef} id="certification" data-cursor-theme="dark" className="relative bg-black text-white overflow-x-hidden">
       <div className="px-8 md:px-20 pt-20">
         <div className="max-w-6xl mx-auto w-full">
           <div className="mb-8">
@@ -228,7 +228,8 @@ export default function CertificationSection() {
       </div>
 
       {/* Horizontal scroll track */}
-      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-6 md:py-12 items-start select-none" style={{ width: "max-content", scrollbarWidth: "none", msOverflowStyle: "none" }}>
+      <div className="overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
+      <div ref={trackRef} className="flex gap-8 px-8 md:px-20 py-6 md:py-12 items-start select-none" style={{ width: "max-content" }}>
         {certifications.map((cert, i) => (
           <CertCard
             key={cert.title}
@@ -238,6 +239,7 @@ export default function CertificationSection() {
             portrait={cert.portrait}
           />
         ))}
+      </div>
       </div>
     </section>
   );
