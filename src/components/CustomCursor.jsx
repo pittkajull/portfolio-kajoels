@@ -5,10 +5,10 @@ const isTouchDevice = () =>
   "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 const SOURCES = {
-  arrowWhite: "/img/cursor/whitecursor.svg",
-  arrowBlack: "/img/cursor/blackcursor.svg",
-  handWhite: "/img/cursor/handcursorwhite.svg",
-  handBlack: "/img/cursor/handcursorblack.svg",
+  arrowWhite: "./img/cursor/whitecursor.svg",
+  arrowBlack: "./img/cursor/blackcursor.svg",
+  handWhite: "./img/cursor/handcursorwhite.svg",
+  handBlack: "./img/cursor/handcursorblack.svg",
 };
 
 const HOTSPOTS = {

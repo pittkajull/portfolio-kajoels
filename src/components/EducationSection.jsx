@@ -23,15 +23,15 @@ function mixedFont(text) {
 
 const EducationText = () => (
   <div className="flex gap-2 items-end">
-    <SVGLetter src="/img/educationsection/E.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/d.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/u.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/c.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/a.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/t.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/i.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/o.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="/img/educationsection/n.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/E.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/d.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/u.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/c.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/a.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/t.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/i.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/o.svg" width={60} height={80} className="edu-letter" />
+    <SVGLetter src="./img/educationsection/n.svg" width={60} height={80} className="edu-letter" />
   </div>
 );
 
@@ -42,7 +42,7 @@ const educationData = [
       'I completed my high school education at MAN 1 Kota Serang, majoring in Religious Studies, where I developed both academic knowledge and personal growth.',
       'During my studies, I actively engaged in learning activities and built discipline, adaptability, and a strong commitment to continuous self-development.',
     ],
-    logo: '/img/educationsection/Man1.svg',
+    logo: './img/educationsection/Man1.svg',
   },
   {
     title: 'Brawijaya University - Information Technology',
@@ -50,7 +50,7 @@ const educationData = [
       'I am currently pursuing a Diploma degree in Information Technology at Universitas Brawijaya, where I continue to develop my knowledge in software development, system design, and modern technologies.',
       'Through academic projects and continuous learning, I actively strengthen both technical and problem-solving skills to support my growth in the technology field.',
     ],
-    logo: '/img/educationsection/UB.svg',
+    logo: './img/educationsection/UB.svg',
   },
 ];
 
@@ -201,7 +201,7 @@ export default function EducationSection() {
         <div className="mb-6 flex justify-end items-end gap-3">
           <EducationText />
           <img
-            src="/img/educationsection/tandapanah.svg"
+            src="./img/educationsection/tandapanah.svg"
             alt="arrow"
             className="edu-arrow w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 opacity-70 rotate-[-30deg] mb-2"
           />
@@ -214,7 +214,7 @@ export default function EducationSection() {
       {/* Grid: kucing mentok kiri bawah, deskripsi di kanan */}
       <div className="w-full grid lg:grid-cols-[1fr_1fr] items-end">
         <div className="relative h-[280px] sm:h-[400px] lg:h-[600px] overflow-hidden">
-          <img src="/img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-cover object-bottom" />
+          <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-cover object-bottom" />
         </div>
 
         <div className="space-y-10 px-8 md:px-20 py-10">

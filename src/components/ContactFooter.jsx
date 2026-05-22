@@ -21,12 +21,12 @@ function mixedFont(text) {
 }
 
 const socialLinks = [
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/muhajir-amrullah-463915337", img: "/img/contactsection/linkedinblack.svg" },
-  { name: "Instagram", url: "https://www.instagram.com/muhajiramrllh._", img: "/img/contactsection/igblack.svg" },
-  { name: "GitHub", url: "https://github.com/pittkajull", img: "/img/contactsection/githubblack.svg" },
-  { name: "TikTok", url: "https://www.tiktok.com/@user0123405056789101112", img: "/img/contactsection/tiktokblack.svg" },
-  { name: "Medium", url: "https://medium.com/@muhajiramrullahub", img: "/img/contactsection/mediumblack.svg" },
-  { name: "Linktree", url: "https://linktr.ee/muhajiramrullah", img: "/img/contactsection/linktreeblack.svg" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/muhajir-amrullah-463915337", img: "./img/contactsection/linkedinblack.svg" },
+  { name: "Instagram", url: "https://www.instagram.com/muhajiramrllh._", img: "./img/contactsection/igblack.svg" },
+  { name: "GitHub", url: "https://github.com/pittkajull", img: "./img/contactsection/githubblack.svg" },
+  { name: "TikTok", url: "https://www.tiktok.com/@user0123405056789101112", img: "./img/contactsection/tiktokblack.svg" },
+  { name: "Medium", url: "https://medium.com/@muhajiramrullahub", img: "./img/contactsection/mediumblack.svg" },
+  { name: "Linktree", url: "https://linktr.ee/muhajiramrullah", img: "./img/contactsection/linktreeblack.svg" },
 ];
 
 const navLinks = [
@@ -110,24 +110,24 @@ export default function ContactFooter() {
         {/* Contact heading — atur jarak ke bawah via mb-X di bawah ini */}
         <div className="mb-4">
           <div className="contact-title flex gap-1 items-end mb-2">
-            <SVGLetter src="/img/contactsection/l.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/e.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/t.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/l.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/e.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/t.svg" className="contact-letter" />
             <div className="contact-letter" style={{ marginBottom: '1.2em' }}>
-              <SVGLetter src="/img/contactsection/'.svg" />
+              <SVGLetter src="./img/contactsection/'.svg" />
             </div>
-            <SVGLetter src="/img/contactsection/s.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/s.svg" className="contact-letter" />
             <div className="w-4" />
-            <SVGLetter src="/img/contactsection/c.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/o.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/n.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/n-1.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/e-1.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/c-1.svg" className="contact-letter" />
-            <SVGLetter src="/img/contactsection/t-1.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/c.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/o.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/n.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/n-1.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/e-1.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/c-1.svg" className="contact-letter" />
+            <SVGLetter src="./img/contactsection/t-1.svg" className="contact-letter" />
           </div>
           <div className="contact-underline">
-            <img src="/img/contactsection/garisbawah.svg" alt="" className="w-36 md:w-44 h-auto" />
+            <img src="./img/contactsection/garisbawah.svg" alt="" className="w-36 md:w-44 h-auto" />
           </div>
         </div>
 
@@ -137,7 +137,7 @@ export default function ContactFooter() {
           {/* Logo + Site name + Motto */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <img src="/img/logo/logohe1istblack.svg" alt="Logo" className="w-10 h-10 rounded-lg object-contain" />
+              <img src="./img/logo/logohe1istblack.svg" alt="Logo" className="w-10 h-10 rounded-lg object-contain" />
               <span className="text-2xl text-black"><span className="font-heading">he</span><span className="font-sans">1</span><span className="font-heading">st</span></span>
             </div>
             <p className="font-heading text-sm sm:text-base md:text-lg text-black/80 leading-relaxed">

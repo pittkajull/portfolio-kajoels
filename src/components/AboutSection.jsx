@@ -50,14 +50,14 @@ function MagneticButton({ children, className, onClick }) {
 
 const AboutMeText = () => (
   <div className="flex gap-2 items-end">
-    <SVGLetter src="/img/aboutsection/A.svg" width={60} height={80} className="about-letter" />
-    <SVGLetter src="/img/aboutsection/b.svg" width={60} height={80} className="about-letter" />
-    <SVGLetter src="/img/aboutsection/o.svg" width={60} height={80} className="about-letter" />
-    <SVGLetter src="/img/aboutsection/u.svg" width={60} height={80} className="about-letter" />
-    <SVGLetter src="/img/aboutsection/t.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/A.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/b.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/o.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/u.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/t.svg" width={60} height={80} className="about-letter" />
     <div className="mx-2" />
-    <SVGLetter src="/img/aboutsection/M.svg" width={60} height={80} className="about-letter" />
-    <SVGLetter src="/img/aboutsection/e.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/M.svg" width={60} height={80} className="about-letter" />
+    <SVGLetter src="./img/aboutsection/e.svg" width={60} height={80} className="about-letter" />
   </div>
 );
 
@@ -164,7 +164,7 @@ export default function AboutSection({ scrollTo }) {
 
         {/* Portrait */}
         <div className="about-avatar relative h-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex items-end">
-          <img src="/img/aboutsection/kajul.svg" alt="Portrait" className="about-avatar-img w-full h-full object-contain object-bottom" />
+          <img src="./img/aboutsection/kajul.svg" alt="Portrait" className="about-avatar-img w-full h-full object-contain object-bottom" />
         </div>
 
         {/* Text */}

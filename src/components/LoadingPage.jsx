@@ -59,12 +59,12 @@ export default function LoadingPage({ onComplete }) {
       {/* Decorations */}
       <div className="absolute inset-0 pointer-events-none z-10">
         <img
-          src="/img/loading/monster.svg"
+          src="./img/loading/monster.svg"
           alt=""
           className="loading-deco absolute top-6 left-4 sm:top-10 sm:left-10 w-16 sm:w-24 md:w-36"
         />
         <img
-          src="/img/loading/cat.svg"
+          src="./img/loading/cat.svg"
           alt=""
           className="loading-deco absolute bottom-6 right-4 sm:bottom-10 sm:right-10 w-14 sm:w-20 md:w-32"
         />

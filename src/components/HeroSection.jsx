@@ -85,28 +85,28 @@ export default function HeroSection() {
       <div className="hero-content max-w-6xl w-full text-center">
         {/* Decorative elements */}
         <div className="hero-deco-hama absolute top-16 sm:top-20 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 opacity-60">
-          <img src="/img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
+          <img src="./img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
         </div>
 
         <div className="hero-deco-hiu absolute bottom-24 sm:bottom-32 right-4 sm:right-8 w-20 sm:w-28 h-20 sm:h-28 opacity-60">
-          <img src="/img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
+          <img src="./img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
         </div>
 
         {/* Main heading with SVG letters */}
         <div className="mb-8">
           <div className="flex justify-center items-end gap-0.5 sm:gap-1 mb-6">
-            <img src="/img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/t.svg" alt="t" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/f.svg" alt="f" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="/img/herosection/O.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/t.svg" alt="t" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/f.svg" alt="f" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/O.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
           </div>
           <div className="flex justify-center mb-8">
-            <img src="/img/herosection/garisbawah.svg" alt="underline" className="h-2" />
+            <img src="./img/herosection/garisbawah.svg" alt="underline" className="h-2" />
           </div>
         </div>
 

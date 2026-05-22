@@ -15,36 +15,36 @@ const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
 
 const ToolsText = () => (
   <div className="flex gap-2 items-end">
-    <SVGLetter src="/img/toolssection/T.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/o.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/o-1.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/l.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/s.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/T.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/o.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/o-1.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/l.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/s.svg" width={60} height={80} className="tools-letter" />
     <div className="mx-2" />
-    <SVGLetter src="/img/toolssection/&.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/&.svg" width={60} height={80} className="tools-letter" />
     <div className="mx-2" />
-    <SVGLetter src="/img/toolssection/s-1.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/o-2.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/f.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/T.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/w.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/a.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/r.svg" width={60} height={80} className="tools-letter" />
-    <SVGLetter src="/img/toolssection/e.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/s-1.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/o-2.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/f.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/T.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/w.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/a.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/r.svg" width={60} height={80} className="tools-letter" />
+    <SVGLetter src="./img/toolssection/e.svg" width={60} height={80} className="tools-letter" />
   </div>
 );
 
 const toolsData = [
-  { name: "React", icon: "/img/toolssection/React.svg", category: "Frontend" },
-  { name: "Figma", icon: "/img/toolssection/figma.svg", category: "Design" },
-  { name: "VSCode", icon: "/img/toolssection/vscode.svg", category: "Editor" },
-  { name: "Tailwind CSS", icon: "/img/toolssection/tailwind.svg", category: "Styling" },
-  { name: "HTML", icon: "/img/toolssection/html.svg", category: "Markup" },
-  { name: "MySQL", icon: "/img/toolssection/mysql.svg", category: "Database" },
-  { name: "Postman", icon: "/img/toolssection/postman.svg", category: "Testing" },
-  { name: "Claude", icon: "/img/toolssection/claude.svg", category: "AI" },
-  { name: "Oracle Virtual Box", icon: "/img/toolssection/vb.svg", category: "Build" },
-  { name: "CSS", icon: "/img/toolssection/css.svg", category: "Build" },
+  { name: "React", icon: "./img/toolssection/React.svg", category: "Frontend" },
+  { name: "Figma", icon: "./img/toolssection/figma.svg", category: "Design" },
+  { name: "VSCode", icon: "./img/toolssection/vscode.svg", category: "Editor" },
+  { name: "Tailwind CSS", icon: "./img/toolssection/tailwind.svg", category: "Styling" },
+  { name: "HTML", icon: "./img/toolssection/html.svg", category: "Markup" },
+  { name: "MySQL", icon: "./img/toolssection/mysql.svg", category: "Database" },
+  { name: "Postman", icon: "./img/toolssection/postman.svg", category: "Testing" },
+  { name: "Claude", icon: "./img/toolssection/claude.svg", category: "AI" },
+  { name: "Oracle Virtual Box", icon: "./img/toolssection/vb.svg", category: "Build" },
+  { name: "CSS", icon: "./img/toolssection/css.svg", category: "Build" },
 ];
 
 function ToolCard({ name, icon, category }) {

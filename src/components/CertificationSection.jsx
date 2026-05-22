@@ -6,58 +6,58 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const kotakFrames = [
-  "/img/experiencesection/kotak1.svg",
-  "/img/experiencesection/kotak2.svg",
-  "/img/experiencesection/kotak 3.svg",
+  "./img/experiencesection/kotak1.svg",
+  "./img/experiencesection/kotak2.svg",
+  "./img/experiencesection/kotak 3.svg",
 ];
 
 const certifications = [
   {
     title: "Ethical Hacking",
     desc: "Fundamentals of ethical hacking, penetration testing methodologies, and security assessment techniques.",
-    image: "/img/certificationsection/Sertifikat-EthicalHacking.png",
+    image: "./img/certificationsection/Sertifikat-EthicalHacking.png",
     portrait: false,
   },
   {
     title: "Kali Linux",
     desc: "Proficiency in Kali Linux distribution for security auditing, network analysis, and vulnerability assessment.",
-    image: "/img/certificationsection/Sertifikat-KaliLinux.png",
+    image: "./img/certificationsection/Sertifikat-KaliLinux.png",
     portrait: false,
   },
   {
     title: "Cisco IT Essentials",
     desc: "Core IT skills covering networking fundamentals, hardware, software, and cybersecurity basics.",
-    image: "/img/certificationsection/Sertifikat-Cisco-ITCS.png",
+    image: "./img/certificationsection/Sertifikat-Cisco-ITCS.png",
     portrait: false,
   },
   {
     title: "Java Programming",
     desc: "Object-oriented programming concepts, Java syntax, and application development fundamentals.",
-    image: "/img/certificationsection/Sertifikat-JAVA.jpeg",
+    image: "./img/certificationsection/Sertifikat-JAVA.jpeg",
     portrait: false,
   },
   {
     title: "Tahfidz Al-Quran",
     desc: "Certification of Quran memorization achievement through Islamic rohaniyah activities.",
-    image: "/img/certificationsection/Sertifikat-Tasmi.png",
+    image: "./img/certificationsection/Sertifikat-Tasmi.png",
     portrait: false,
   },
   {
     title: "ROHIS Organization",
     desc: "Active contribution in Islamic spiritual organization at school, leading events and community programs.",
-    image: "/img/certificationsection/Sertifikat-ROHIS.png",
+    image: "./img/certificationsection/Sertifikat-ROHIS.png",
     portrait: false,
   },
   {
     title: "English Meeting",
     desc: "Participation and facilitation of English-language meeting and discussion sessions.",
-    image: "/img/certificationsection/Sertifikat-EM.png",
+    image: "./img/certificationsection/Sertifikat-EM.png",
     portrait: true,
   },
   {
     title: "Techno CUP",
     desc: "Technology competition and innovation challenge showcasing technical and problem-solving skills.",
-    image: "/img/certificationsection/Sertifikat-TechnoCUP.jpeg",
+    image: "./img/certificationsection/Sertifikat-TechnoCUP.jpeg",
     portrait: false,
   },
 ];
@@ -214,7 +214,7 @@ export default function CertificationSection() {
           <div className="mb-8">
             <div className="mb-6">
               <img
-                src="/img/certificationsection/certificates.svg"
+                src="./img/certificationsection/certificates.svg"
                 alt="Certification"
                 className="cert-title-img h-16 md:h-20 w-auto"
               />

@@ -13,16 +13,16 @@ const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
 );
 
 const kotakFrames = [
-  "/img/experiencesection/kotak1.svg",
-  "/img/experiencesection/kotak2.svg",
-  "/img/experiencesection/kotak 3.svg",
+  "./img/experiencesection/kotak1.svg",
+  "./img/experiencesection/kotak2.svg",
+  "./img/experiencesection/kotak 3.svg",
 ];
 
 const articles = [
   {
     title: "Eksploitasi & Mitigasi Samba 3.0.20: Write-up Simulasi Red Team & Blue Team",
     desc: "A cybersecurity lab simulation exploiting a vulnerability in Samba 3.0.20 using Metasploit and Nmap. Covers Red Team attack strategies — reconnaissance, exploitation, privilege escalation, and backdoor planting — alongside Blue Team defense through traffic detection with Wireshark and backdoor removal.",
-    image: "/img/articelsection/samba.png",
+    image: "./img/articelsection/samba.png",
     url: "https://medium.com/@muhajiramrullahub/eksploitasi-mitigasi-samba-3-0-20-write-up-simulasi-red-team-blue-team-40cf0e58595f",
     date: "May 2025",
     readTime: "8 min read",
@@ -31,7 +31,7 @@ const articles = [
   {
     title: "Mission Accomplished: Cracking JWT & Capturing the Flag at Cybersecurity Bootcamp",
     desc: "A CTF challenge write-up from Ignite Academy's cybersecurity bootcamp. Documents penetration testing on the Sentinel authentication system — brute-forcing weak JWT signing keys with Hashcat, forging tokens to escalate privileges, and capturing the flag.",
-    image: "/img/articelsection/jwt.png",
+    image: "./img/articelsection/jwt.png",
     url: "https://medium.com/@muhajiramrullahub/mission-accomplished-cracking-jwt-capturing-the-flag-at-cybersecurity-bootcamp-68b8626cd613",
     date: "April 2025",
     readTime: "6 min read",
@@ -40,7 +40,7 @@ const articles = [
   {
     title: "Cara Cepat Pasang Gemini AI di Terminal (Official @google/gemini-cli)",
     desc: "A step-by-step tutorial on installing Google's official Gemini CLI tool via npm. Covers authentication with Google API key, managing folder trust settings, and using Gemini directly in the terminal for coding assistance.",
-    image: "/img/articelsection/gemini.png",
+    image: "./img/articelsection/gemini.png",
     url: "https://medium.com/@muhajiramrullahub/cara-cepat-pasang-gemini-ai-di-terminal-official-google-gemini-cli-cd81d5b7b0a4",
     date: "March 2025",
     readTime: "4 min read",
@@ -215,13 +215,13 @@ export default function ArticleSection() {
         {/* Title */}
         <div className="mb-12">
           <div className="article-title-img flex gap-2 items-end mb-6">
-            <SVGLetter src="/img/articelsection/A.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/r.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/t.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/i.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/c.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/l.svg" width={60} height={80} className="article-letter" />
-            <SVGLetter src="/img/articelsection/e.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/A.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/r.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/t.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/i.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/c.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/l.svg" width={60} height={80} className="article-letter" />
+            <SVGLetter src="./img/articelsection/e.svg" width={60} height={80} className="article-letter" />
           </div>
           <SketchUnderline width={200} />
         </div>

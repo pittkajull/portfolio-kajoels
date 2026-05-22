@@ -13,33 +13,33 @@ const SVGLetter = ({ src, width = 60, height = 80, className = "" }) => (
 );
 
 const kotakFrames = [
-  "/img/experiencesection/kotak1.svg",
-  "/img/experiencesection/kotak2.svg",
-  "/img/experiencesection/kotak 3.svg",
+  "./img/experiencesection/kotak1.svg",
+  "./img/experiencesection/kotak2.svg",
+  "./img/experiencesection/kotak 3.svg",
 ];
 
 const techLogos = {
-  "HTML": "/img/toolssection/html.svg",
-  "CSS": "/img/toolssection/css.svg",
-  "Tailwind": "/img/toolssection/tailwind.svg",
-  "PHP": "/img/toolssection/php.svg",
-  "MySQL": "/img/toolssection/mysql.svg",
-  "Blade": "/img/toolssection/laravel.svg",
-  "Laravel": "/img/toolssection/laravel.svg",
-  "Dart": "/img/toolssection/dart.svg",
-  "Flutter": "/img/toolssection/flutter.svg",
-  "Firebase": "/img/toolssection/firebase.svg",
-  "Python": "/img/toolssection/python.svg",
-  "React": "/img/toolssection/React.svg",
-  "TensorFlow": "/img/toolssection/tensorflow.svg",
-  "Supabase": "/img/toolssection/supabase.svg",
+  "HTML": "./img/toolssection/html.svg",
+  "CSS": "./img/toolssection/css.svg",
+  "Tailwind": "./img/toolssection/tailwind.svg",
+  "PHP": "./img/toolssection/php.svg",
+  "MySQL": "./img/toolssection/mysql.svg",
+  "Blade": "./img/toolssection/laravel.svg",
+  "Laravel": "./img/toolssection/laravel.svg",
+  "Dart": "./img/toolssection/dart.svg",
+  "Flutter": "./img/toolssection/flutter.svg",
+  "Firebase": "./img/toolssection/firebase.svg",
+  "Python": "./img/toolssection/python.svg",
+  "React": "./img/toolssection/React.svg",
+  "TensorFlow": "./img/toolssection/tensorflow.svg",
+  "Supabase": "./img/toolssection/supabase.svg",
 };
 
 const completedProjects = [
   {
     title: "Reincarnate",
     desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
-    image: "/img/projectsection/Reincarnate.png",
+    image: "./img/projectsection/Reincarnate.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
     github: "https://github.com/pittkajull/reincarnate.git",
     demo: "#",
@@ -47,7 +47,7 @@ const completedProjects = [
   {
     title: "Artnest",
     desc: "A social media platform for digital creators to showcase, share, and discover digital artwork. Built as a community-driven space where artists can connect and present their creative portfolios.",
-    image: "/img/projectsection/Artnest.png",
+    image: "./img/projectsection/Artnest.png",
     tech: ["CSS", "HTML", "Tailwind", "PHP", "MySQL"],
     github: "https://github.com/pittkajull/artnest.git",
     demo: "#",
@@ -55,7 +55,7 @@ const completedProjects = [
   {
     title: "Focusly",
     desc: "A focus and productivity app inspired by the Pomodoro technique, enhanced with pre-study relaxation sessions to calm the user before starting, and post-study appreciation moments to celebrate completion.",
-    image: "/img/projectsection/Focusly.png",
+    image: "./img/projectsection/Focusly.png",
     tech: ["Dart", "Flutter", "Firebase"],
     github: "https://github.com/pittkajull/focusly.git",
     demo: "#",
@@ -63,7 +63,7 @@ const completedProjects = [
   {
     title: "Class Billiard",
     desc: "A premium billiard lounge & cafe website featuring table reservations, menu browsing, team profiles, tournament showcases, and customer reviews — serving as both a marketing platform and booking portal.",
-    image: "/img/projectsection/class-billiard.png",
+    image: "./img/projectsection/class-billiard.png",
     tech: ["CSS", "HTML", "Tailwind", "Blade", "Laravel", "PHP", "MySQL"],
     github: "https://github.com/pittkajull/class_billiard.git",
     demo: "https://classbilliard.com",
@@ -71,7 +71,7 @@ const completedProjects = [
   {
     title: "Pakbie",
     desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
-    image: "/img/projectsection/pakbie.png",
+    image: "./img/projectsection/pakbie.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
     github: "https://github.com/pittkajull/umkmpakbie.git",
     demo: "#",
@@ -82,7 +82,7 @@ const ongoingProjects = [
   {
     title: "StockPP",
     desc: "An autonomous financial forecasting agent that automates the entire ML lifecycle for stock market analysis — from real-time data collection, preprocessing, training, to deployment. Uses Stacked LSTM with automated retraining and RMSE-based validation. Integrates Supabase for cloud persistence and FastAPI with model caching, reducing inference latency from ~5s to <50ms. Currently monitors 8 major stocks with ~15 automated retraining cycles per week, cutting manual analysis time by 90%.",
-    image: "/img/projectsection/StockPP.png",
+    image: "./img/projectsection/StockPP.png",
     tech: ["Python", "React", "TensorFlow", "Supabase", "Tailwind"],
     github: "https://github.com/pittkajull/StockPP.git",
     demo: "#",
@@ -91,7 +91,7 @@ const ongoingProjects = [
   {
     title: "SIMS",
     desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
-    image: "/img/projectsection/SIMS.png",
+    image: "./img/projectsection/SIMS.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React"],
     github: "https://github.com/pittkajull/smart-infusion.git",
     demo: "#",
@@ -142,7 +142,7 @@ function ProgressBar({ percent }) {
   return (
     <div ref={countRef}>
       <img
-        src={`/img/projectsection/bar${closest}%.svg`}
+        src={`./img/projectsection/bar${closest}%.svg`}
         alt={`${percent}% progress`}
         className="w-full h-auto"
       />
@@ -335,13 +335,13 @@ export default function ProjectsSection() {
         {/* Title */}
         <div className="mb-12">
           <div className="project-title-img flex gap-2 items-end mb-6">
-            <SVGLetter src="/img/projectsection/p.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/r.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/o.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/j.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/e.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/c.svg" width={60} height={80} className="proj-letter" />
-            <SVGLetter src="/img/projectsection/t.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/p.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/r.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/o.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/j.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/e.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/c.svg" width={60} height={80} className="proj-letter" />
+            <SVGLetter src="./img/projectsection/t.svg" width={60} height={80} className="proj-letter" />
           </div>
           <SketchUnderline width={200} />
         </div>
