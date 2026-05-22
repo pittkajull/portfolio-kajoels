@@ -11,7 +11,6 @@ export default function LoadingPage({ onComplete }) {
     fetch("./img/loading/loadingss.svg")
       .then((res) => res.text())
       .then((text) => {
-        // Remove fixed width/height so it scales to container
         const cleaned = text.replace(/width="[^"]*"/, '').replace(/height="[^"]*"/, '');
         setSvgContent(cleaned);
       });
@@ -34,8 +33,8 @@ export default function LoadingPage({ onComplete }) {
       });
     });
 
-    // Init decorations hidden
-    gsap.set(".loading-deco", { scale: 0, opacity: 0 });
+    // Init decorations hidden (scale via GSAP, opacity already 0 via CSS)
+    gsap.set(".loading-deco", { scale: 0 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -55,7 +54,7 @@ export default function LoadingPage({ onComplete }) {
       stagger: 0.1,
       ease: "power2.inOut",
     })
-    // 3. Decorations pop in
+    // 2. Decorations pop in
     .to(".loading-deco", {
       scale: 1,
       opacity: 1,
@@ -63,7 +62,7 @@ export default function LoadingPage({ onComplete }) {
       duration: 0.6,
       ease: "back.out(1.7)",
     }, "-=0.8")
-    // 4. Hold briefly
+    // 3. Hold briefly
     .to({}, { duration: 0.5 });
   }, { dependencies: [svgContent] });
 
@@ -72,16 +71,18 @@ export default function LoadingPage({ onComplete }) {
       ref={overlayRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Decorations */}
+      {/* Decorations — opacity:0 via style so they're invisible before GSAP runs */}
       <img
         src="./img/loading/monster.svg"
         alt=""
         className="loading-deco absolute top-6 left-4 sm:top-10 sm:left-10 w-16 sm:w-24 md:w-36 z-10"
+        style={{ opacity: 0 }}
       />
       <img
         src="./img/loading/cat.svg"
         alt=""
         className="loading-deco absolute bottom-6 right-4 sm:bottom-10 sm:right-10 w-14 sm:w-20 md:w-32 z-10"
+        style={{ opacity: 0 }}
       />
 
       {/* Loading SVG inline for stroke-draw animation */}
