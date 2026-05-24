@@ -83,11 +83,11 @@ export default function HeroSection() {
     <section ref={sectionRef} id="hero" data-cursor-theme="dark" className="min-h-screen flex items-center justify-center relative px-8">
       <div className="hero-content max-w-6xl w-full text-center">
         {/* Decorative elements */}
-        <div className="hero-deco-hama absolute top-16 sm:top-20 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 opacity-60">
+        <div className="hero-deco-hama absolute top-4 sm:top-20 left-1 sm:left-8 w-12 sm:w-24 h-12 sm:h-24 opacity-60">
           <img src="./img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
         </div>
 
-        <div className="hero-deco-hiu absolute bottom-24 sm:bottom-32 right-4 sm:right-8 w-20 sm:w-28 h-20 sm:h-28 opacity-60">
+        <div className="hero-deco-hiu absolute bottom-28 sm:bottom-32 right-4 sm:right-8 w-16 sm:w-28 h-16 sm:h-28 opacity-60">
           <img src="./img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
         </div>
 
