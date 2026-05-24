@@ -77,7 +77,7 @@ export default function ToolsSection() {
       scrollTrigger: {
         trigger: ".tools-letter",
         start: "top 85%",
-        toggleActions: "play none none reverse",
+        once: true,
       },
     });
 
@@ -94,18 +94,8 @@ export default function ToolsSection() {
           overwrite: true,
         });
       },
-      onLeaveBack: (elements) => {
-        gsap.to(elements, {
-          y: 30,
-          opacity: 0,
-          scale: 0.95,
-          stagger: 0.05,
-          duration: 0.3,
-          overwrite: true,
-        });
-      },
       start: "top 85%",
-      end: "bottom 15%",
+      once: true,
     });
 
     // Proximity scale grid — cards scale up based on cursor distance

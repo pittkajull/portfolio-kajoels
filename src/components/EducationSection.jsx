@@ -200,7 +200,7 @@ export default function EducationSection() {
     <section ref={sectionRef} id="education" data-cursor-theme="light" className="relative bg-white text-slate-950">
       {/* Title */}
       <div className="max-w-6xl mx-auto w-full px-8 md:px-20 mb-10 text-right">
-        <div className="mb-6 flex justify-end items-end gap-3">
+        <div className="mb-6 flex justify-end items-end gap-3 overflow-hidden">
           <EducationText />
           <img
             src="./img/educationsection/tandapanah.svg"
