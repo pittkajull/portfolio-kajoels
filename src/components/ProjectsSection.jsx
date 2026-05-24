@@ -101,7 +101,7 @@ const ongoingProjects = [
   },
  {
     title: "CIPHER",
-    desc: "CIPHER adalah AI-powered interactive cybersecurity education game yang mengubah proses belajar keamanan digital menjadi pengalaman investigasi yang imersif. Dalam web app ini, pengguna berperan sebagai agen baru di CIPHER Agency dan menyelesaikan berbagai kasus serangan siber melalui eksplorasi evidence, pencarian clue tersembunyi, serta pengambilan keputusan berbasis analisis. Didukung oleh Gemini AI melalui karakter ARIA sebagai briefing officer, setiap kasus menghadirkan interaksi sinematik dan respons dinamis yang membimbing pemain tanpa memberikan jawaban secara langsung. Dibangun menggunakan React, Tailwind CSS, GSAP, Express.js, dan arsitektur proxy yang mengutamakan keamanan, CIPHER menghadirkan pengalaman belajar cybersecurity yang engaging, gamified, dan berbasis investigasi nyata.",
+    desc: "CIPHER is an AI-powered interactive cybersecurity education game where users become cyber agents and solve realistic attack cases through evidence analysis and clue discovery. Guided by ARIA, an intelligent briefing officer powered by Gemini AI, players learn cybersecurity through immersive, gamified investigation experiences. Built with React, Tailwind CSS, GSAP, and Express.js with a security-first architecture.",
     image: "./img/projectsection/CIPHER.png",
     tech: ["HTML", "CSS","Tailwind", "React"],
     github: "https://github.com/pittkajull/CIPHER.git",
@@ -287,12 +287,16 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, target,
   );
 }
 
-function ProjectSubsection({ label, projects }) {
+function ProjectSubsection({ label, icon, iconClass = "h-8 md:h-9", projects }) {
   return (
     <div className="project-subsection">
-      <h3 className="project-subtitle font-heading text-white/70 text-xl md:text-2xl mb-8">
-        {label}
-      </h3>
+      <div className="project-subtitle mt-12 mb-8">
+        {icon ? (
+          <img src={icon} alt={label} className={`${iconClass} w-auto`} />
+        ) : (
+          <h3 className="font-heading text-white/70 text-xl md:text-2xl">{label}</h3>
+        )}
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((proj, i) => (
           <ProjectCard key={proj.title} {...proj} index={i} />
@@ -368,10 +372,10 @@ export default function ProjectsSection() {
         </div>
 
         {/* Completed Projects */}
-        <ProjectSubsection label="Completed" projects={completedProjects} />
+        <ProjectSubsection label="Completed" icon="./img/projectsection/completed.svg" iconClass="h-8 md:h-9" projects={completedProjects} />
 
         {/* Ongoing Projects */}
-        <ProjectSubsection label="On Going" projects={ongoingProjects} />
+        <ProjectSubsection label="On Going" icon="./img/projectsection/ongoing.svg" iconClass="h-8 md:h-15" projects={ongoingProjects} />
       </div>
     </section>
   );
