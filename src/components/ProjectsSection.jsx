@@ -99,6 +99,16 @@ const ongoingProjects = [
     progress: 50,
     target: "Q2 2026",
   },
+ {
+    title: "CIPHER",
+    desc: "CIPHER adalah AI-powered interactive cybersecurity education game yang mengubah proses belajar keamanan digital menjadi pengalaman investigasi yang imersif. Dalam web app ini, pengguna berperan sebagai agen baru di CIPHER Agency dan menyelesaikan berbagai kasus serangan siber melalui eksplorasi evidence, pencarian clue tersembunyi, serta pengambilan keputusan berbasis analisis. Didukung oleh Gemini AI melalui karakter ARIA sebagai briefing officer, setiap kasus menghadirkan interaksi sinematik dan respons dinamis yang membimbing pemain tanpa memberikan jawaban secara langsung. Dibangun menggunakan React, Tailwind CSS, GSAP, Express.js, dan arsitektur proxy yang mengutamakan keamanan, CIPHER menghadirkan pengalaman belajar cybersecurity yang engaging, gamified, dan berbasis investigasi nyata.",
+    image: "./img/projectsection/CIPHER.png",
+    tech: ["HTML", "CSS","Tailwind", "React"],
+    github: "https://github.com/pittkajull/CIPHER.git",
+    demo: "#",
+    progress: 10,
+    target: "Q2 2026",
+  },
 ];
 
 // Auto split: angka → font-sans, huruf → font-heading
