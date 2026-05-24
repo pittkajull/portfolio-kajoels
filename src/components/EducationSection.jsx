@@ -6,12 +6,6 @@ import SketchUnderline from './SketchUnderline';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SVGLetter = ({ src, width = 80, height = 100, className = "" }) => (
-  <svg viewBox={`0 0 ${width} ${height}`} className={`inline-block w-8 h-10 sm:w-10 sm:h-14 md:w-12 md:h-16 ${className}`}>
-    <image href={src} width={width} height={height} />
-  </svg>
-);
-
 // Auto split: angka → font-sans, huruf → font-heading
 function mixedFont(text) {
   return text.split(/(\d+)/).map((part, i) =>
@@ -22,16 +16,12 @@ function mixedFont(text) {
 }
 
 const EducationText = () => (
-  <div className="flex gap-2 items-end">
-    <SVGLetter src="./img/educationsection/E.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/d.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/u.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/c.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/a.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/t.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/i.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/o.svg" width={60} height={80} className="edu-letter" />
-    <SVGLetter src="./img/educationsection/n.svg" width={60} height={80} className="edu-letter" />
+  <div className="overflow-hidden">
+    <img
+      src="./img/educationsection/education.svg"
+      alt="Education"
+      className="edu-letter h-14 sm:h-16 md:h-20 w-auto"
+    />
   </div>
 );
 
@@ -99,12 +89,10 @@ export default function EducationSection() {
       repeat: -1,
     });
 
-    // SVG letters stagger entrance
+    // Education title entrance
     gsap.from(".edu-letter", {
       y: 30,
       opacity: 0,
-      rotation: () => gsap.utils.random(-10, 10),
-      stagger: 0.05,
       duration: 0.6,
       ease: "back.out(1.7)",
       scrollTrigger: {
@@ -216,7 +204,7 @@ export default function EducationSection() {
       {/* Grid: kucing mentok kiri bawah, deskripsi di kanan */}
       <div className="w-full grid lg:grid-cols-[1fr_1fr] items-end">
         <div className="relative h-[200px] sm:h-[280px] md:h-[400px] lg:h-[600px] overflow-hidden">
-          <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-contain object-bottom lg:object-cover" />
+          <img src="./img/educationsection/kucing.svg" alt="Education illustration" className="edu-cat absolute inset-0 w-full h-full object-contain object-bottom object-left lg:object-cover lg:object-center" />
         </div>
 
         <div className="space-y-10 px-8 md:px-20 py-10">
