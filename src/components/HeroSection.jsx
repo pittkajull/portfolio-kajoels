@@ -51,11 +51,12 @@ export default function HeroSection() {
       },
     });
 
-    // Portfolio title entrance
+    // SVG letters stagger entrance
     gsap.from(".hero-letter", {
       y: 60,
       opacity: 0,
-      scale: 0.9,
+      rotation: () => gsap.utils.random(-15, 15),
+      stagger: 0.08,
       duration: 1,
       ease: "back.out(1.7)",
       delay: 0.3,
@@ -83,20 +84,34 @@ export default function HeroSection() {
     <section ref={sectionRef} id="hero" data-cursor-theme="dark" className="min-h-screen flex items-center justify-center relative px-8">
       <div className="hero-content max-w-6xl w-full text-center">
         {/* Decorative elements */}
-        <div className="hero-deco-hama absolute top-4 sm:top-20 left-1 sm:left-8 w-12 sm:w-24 h-12 sm:h-24 opacity-60">
+        <div className="hero-deco-hama absolute top-16 sm:top-20 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 opacity-60">
           <img src="./img/herosection/hama.svg" alt="decoration" className="w-full h-full" />
         </div>
 
-        <div className="hero-deco-hiu absolute bottom-28 sm:bottom-32 right-4 sm:right-8 w-16 sm:w-28 h-16 sm:h-28 opacity-60">
+        <div className="hero-deco-hiu absolute bottom-24 sm:bottom-32 right-4 sm:right-8 w-20 sm:w-28 h-20 sm:h-28 opacity-60">
           <img src="./img/herosection/hiu.svg" alt="decoration" className="w-full h-full" />
         </div>
 
-        {/* Main heading with SVG letters */}
+        {/* Main heading — mobile: single SVG, desktop: per-letter SVGs */}
         <div className="mb-8">
-          <div className="flex justify-center mb-6 overflow-hidden">
-            <img src="./img/herosection/portfolio.svg" alt="Portfolio" className="hero-letter h-14 sm:h-20 md:h-32 w-auto" />
+          {/* Mobile: single portfolio.svg */}
+          <div className="flex justify-center items-end mb-6 overflow-hidden sm:hidden">
+            <img src="./img/herosection/portfolio.svg" alt="Portfolio" className="hero-letter h-24 w-auto" />
           </div>
-          <div className="flex justify-center mb-8">
+          {/* Desktop: per-letter SVGs */}
+          <div className="hidden sm:flex justify-center items-end gap-1 mb-6 overflow-hidden">
+            <img src="./img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/t.svg" alt="t" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/f.svg" alt="f" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
+            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+          </div>
+          {/* Underline — only on desktop (portfolio.svg already has its own) */}
+          <div className="hidden sm:flex justify-center mb-8">
             <img src="./img/herosection/garisbawah.svg" alt="underline" className="h-2" />
           </div>
         </div>
