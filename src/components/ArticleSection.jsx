@@ -20,6 +20,15 @@ const kotakFrames = [
 
 const articles = [
   {
+    title: "The Pushes That Never Turned Green — My GitHub Contributions Didn't Count Because of the Wrong Email",
+    desc: "A personal debugging story about why my GitHub contribution graph stayed empty despite daily pushes — turns out the email in my git config didn't match my GitHub account. Covers how to diagnose, fix, and prevent the issue with git config, commit rewriting, and SSH/GPG verification.",
+    image: "./img/articelsection/github.png",
+    url: "https://medium.com/@muhajiramrullahub/the-pushes-that-never-turned-green-my-github-contributions-didnt-count-because-of-the-wrong-email-d17ef14a56b0",
+    date: "May 2026",
+    readTime: "5 min read",
+    tag: "Git",
+  },
+  {
     title: "Eksploitasi & Mitigasi Samba 3.0.20: Write-up Simulasi Red Team & Blue Team",
     desc: "A cybersecurity lab simulation exploiting a vulnerability in Samba 3.0.20 using Metasploit and Nmap. Covers Red Team attack strategies — reconnaissance, exploitation, privilege escalation, and backdoor planting — alongside Blue Team defense through traffic detection with Wireshark and backdoor removal.",
     image: "./img/articelsection/samba.png",
