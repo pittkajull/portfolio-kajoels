@@ -97,7 +97,7 @@ export default function App() {
       <ArticleSection />
 
       {/* Divider: dark → white */}
-      <div data-cursor-theme="dark" className="bg-black footer-curve-wrap" style={{ lineHeight: 0, fontSize: 0 }}>
+      <div data-cursor-theme="dark" className="bg-black footer-curve-wrap" style={{ lineHeight: 0, fontSize: 0, marginBottom: -2 }}>
         <svg viewBox="0 0 1440 120" className="footer-curve w-full block" preserveAspectRatio="none" style={{ display: "block" }}>
           <path d="M0,0 C480,100 960,100 1440,0 L1440,120 L0,120 Z" fill="white" />
         </svg>

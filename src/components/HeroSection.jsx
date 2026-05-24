@@ -51,12 +51,11 @@ export default function HeroSection() {
       },
     });
 
-    // SVG letters stagger entrance
+    // Portfolio title entrance
     gsap.from(".hero-letter", {
       y: 60,
       opacity: 0,
-      rotation: () => gsap.utils.random(-15, 15),
-      stagger: 0.08,
+      scale: 0.9,
       duration: 1,
       ease: "back.out(1.7)",
       delay: 0.3,
@@ -94,16 +93,8 @@ export default function HeroSection() {
 
         {/* Main heading with SVG letters */}
         <div className="mb-8">
-          <div className="flex justify-center items-end gap-0.5 sm:gap-1 mb-6 overflow-hidden">
-            <img src="./img/herosection/P.svg" alt="P" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/r.svg" alt="r" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/t.svg" alt="t" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/f.svg" alt="f" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/l.svg" alt="l" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/i.svg" alt="i" className="hero-letter h-14 sm:h-20 md:h-32" />
-            <img src="./img/herosection/o-1.svg" alt="o" className="hero-letter h-14 sm:h-20 md:h-32" />
+          <div className="flex justify-center mb-6 overflow-hidden">
+            <img src="./img/herosection/portfolio.svg" alt="Portfolio" className="hero-letter h-14 sm:h-20 md:h-32 w-auto" />
           </div>
           <div className="flex justify-center mb-8">
             <img src="./img/herosection/garisbawah.svg" alt="underline" className="h-2" />

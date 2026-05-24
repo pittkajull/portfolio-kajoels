@@ -105,7 +105,7 @@ export default function ContactFooter() {
   }, { scope: footerRef });
 
   return (
-    <footer ref={footerRef} id="contact" data-cursor-theme="light" className="relative bg-white text-black px-8 md:px-20 pt-3 pb-8">
+    <footer ref={footerRef} id="contact" data-cursor-theme="light" className="relative bg-white text-black px-8 md:px-20 pt-3 pb-8" style={{ marginTop: -2 }}>
       <div className="max-w-6xl mx-auto w-full">
         {/* Contact heading — atur jarak ke bawah via mb-X di bawah ini */}
         <div className="mb-4">
