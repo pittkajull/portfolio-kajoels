@@ -106,7 +106,7 @@ const ongoingProjects = [
     tech: ["HTML", "CSS","Tailwind", "React"],
     github: "https://github.com/pittkajull/CIPHER.git",
     demo: "#",
-    progress: 10,
+    progress: 80,
     target: "Q2 2026",
   },
 ];
