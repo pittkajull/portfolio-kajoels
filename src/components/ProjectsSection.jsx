@@ -33,6 +33,7 @@ const techLogos = {
   "React": "./img/toolssection/React.svg",
   "TensorFlow": "./img/toolssection/tensorflow.svg",
   "Supabase": "./img/toolssection/supabase.svg",
+  "Claude": "./img/toolssection/claude.svg",
 };
 
 const completedProjects = [
@@ -78,11 +79,11 @@ const completedProjects = [
   },
   {
     title: "OS-Portfolio",
-    desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
+    desc: "An experimental portfolio project inspired by a desktop operating system, built with React and Tailwind CSS. Designed to create an interactive and playful experience through desktop-style navigation and window-based UI.",
     image: "./img/projectsection/OS-he1st.png",
-    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
+    tech: ["React" , "Tailwind" , "Claude"],
     github: "https://github.com/pittkajull/he1st.git",
-    demo: "#",
+    demo: "https://os-he1st.vercel.app/",
   },
 ];
 
