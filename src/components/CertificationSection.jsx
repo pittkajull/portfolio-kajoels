@@ -25,8 +25,8 @@ const certifications = [
     portrait: false,
   },
   {
-    title: "Cisco IT Essentials",
-    desc: "Core IT skills covering networking fundamentals, hardware, software, and cybersecurity basics.",
+    title: "Cisco Introduction to Cybersecurity",
+    desc: "Completed the Introduction to Cybersecurity program by Cisco Networking Academy, covering cybersecurity fundamentals, online threats, and digital security practices.",
     image: "./img/certificationsection/Sertifikat-Cisco-ITCS.png",
     portrait: false,
   },
@@ -49,8 +49,8 @@ const certifications = [
     portrait: false,
   },
   {
-    title: "English Meeting",
-    desc: "Participation and facilitation of English-language meeting and discussion sessions.",
+    title: "Student Executive",
+    desc: "Internship Staff at the Internal Human Resource Management Bureau of the Student Executive Board, Universitas Brawijaya. Assisted in organizational management and team coordination.",
     image: "./img/certificationsection/Sertifikat-EM.png",
     portrait: true,
   },
@@ -58,6 +58,12 @@ const certifications = [
     title: "Techno CUP",
     desc: "Technology competition and innovation challenge showcasing technical and problem-solving skills.",
     image: "./img/certificationsection/Sertifikat-TechnoCUP.jpeg",
+    portrait: false,
+  },
+  {
+    title: "Ignite Academy Bootcamp",
+    desc: "Participated in the Mini Bootcamp Cyber Security program, focusing on secure coding practices and the integration of web development with cybersecurity principles.",
+    image: "./img/certificationsection/Sertifikat-IgniteAcademy.jpeg",
     portrait: false,
   },
 ];
