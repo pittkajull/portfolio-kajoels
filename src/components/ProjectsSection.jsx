@@ -79,9 +79,9 @@ const completedProjects = [
   {
     title: "OS-Portfolio",
     desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
-    image: "./img/projectsection/pakbie.png",
+    image: "./img/projectsection/OS-he1st.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
-    github: "https://github.com/pittkajull/umkmpakbie.git",
+    github: "https://github.com/pittkajull/he1st.git",
     demo: "#",
   },
 ];
