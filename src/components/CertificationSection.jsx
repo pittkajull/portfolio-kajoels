@@ -66,6 +66,7 @@ const certifications = [
     image: "./img/certificationsection/Sertifikat-IgniteAcademy.jpeg",
     portrait: false,
   },
+
 ];
 
 function CertCard({ title, desc, image, frame, index, portrait }) {
