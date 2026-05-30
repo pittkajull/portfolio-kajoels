@@ -69,7 +69,7 @@ const certifications = [
   {
     title: "practical AI for productivity - DICODING INDONESIA",
     desc: "Successfully completed the “AI Praktis untuk Produktivitas” course by Dicoding Indonesia, covering fundamental concepts of Artificial Intelligence, Machine Learning, Prompt Engineering, and the ethical use of AI to improve productivity and digital problem-solving skills.",
-    image: "./img/certificationsection/Sertifikat-AI.png",
+    image: "./img/certificationsection/Sertifikat-AIuntukproduktivitas-Dicoding.jpeg",
     portrait: false,
   }
 ];
