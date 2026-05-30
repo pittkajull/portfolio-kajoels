@@ -66,7 +66,12 @@ const certifications = [
     image: "./img/certificationsection/Sertifikat-IgniteAcademy.jpeg",
     portrait: false,
   },
-
+  {
+    title: "practical AI for productivity - DICODING INDONESIA",
+    desc: "Successfully completed the “AI Praktis untuk Produktivitas” course by Dicoding Indonesia, covering fundamental concepts of Artificial Intelligence, Machine Learning, Prompt Engineering, and the ethical use of AI to improve productivity and digital problem-solving skills.",
+    image: "./img/certificationsection/Sertifikat-AI.png",
+    portrait: false,
+  }
 ];
 
 function CertCard({ title, desc, image, frame, index, portrait }) {
