@@ -36,6 +36,9 @@ const techLogos = {
   "Claude": "./img/toolssection/claude.svg",
   "GSAP": "./img/toolssection/GSAP.svg",
   "JavaScript": "./img/toolssection/Javascript.svg",
+  "n8n": "./img/toolssection/n8n.svg",
+  "Groq": "./img/toolssection/groq.svg",
+  "Telegram": "./img/toolssection/telegram.svg",
 };
 
 const completedProjects = [
@@ -94,6 +97,13 @@ const completedProjects = [
     tech: ["React","Tailwind","GSAP","JavaScript"],
     github: "https://github.com/pittkajull/CIPHER.git",
     demo: "https://cipher-zeta-kohl.vercel.app/",
+  },
+   {
+    title: "Yuuki - The Sarkastic AI Agent",
+    desc: "Yuuki is an AI-based Telegram bot designed not to be a cute assistant, but rather the most honest and annoying friend. Using n8n as a workflow orchestrator and Groq as an inference engine, Yuuki breaks the mold of standard, boring and overly formal AI assistants.",
+    image: "./img/projectsection/Yuuki.png",
+    tech: ["n8n","Groq","Telegram"],
+    demo: "https://t.me/kajoels_bot",
   },
 ];
 
