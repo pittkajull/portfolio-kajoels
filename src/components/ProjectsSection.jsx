@@ -108,16 +108,6 @@ const ongoingProjects = [
     progress: 70,
     target: "Q2 2026",
   },
- {
-    title: "CIPHER",
-    desc: "CIPHER is an AI-powered interactive cybersecurity education game where users become cyber agents and solve realistic attack cases through evidence analysis and clue discovery. Guided by ARIA, an intelligent briefing officer powered by Gemini AI, players learn cybersecurity through immersive, gamified investigation experiences. Built with React, Tailwind CSS, GSAP, and Express.js with a security-first architecture.",
-    image: "./img/projectsection/CIPHER.png",
-    tech: ["HTML", "CSS","Tailwind", "React"],
-    github: "https://github.com/pittkajull/CIPHER.git",
-    demo: "#",
-    progress: 80,
-    target: "Q2 2026",
-  },
 ];
 
 // Auto split: angka → font-sans, huruf → font-heading
