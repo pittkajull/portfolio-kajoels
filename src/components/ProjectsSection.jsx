@@ -105,6 +105,13 @@ const completedProjects = [
     tech: ["n8n","Groq","Telegram"],
     demo: "https://t.me/kajoels_bot",
   },
+  {
+    title: "Watchdog - The 24/7 Website Guardian",
+    desc: "An automated workflow designed to ensure 24/7 website availability. It uses scheduled triggers and conditional logic to verify server uptime. If the response is not up to standard (status 200 OK), the Telegram bot automatically sends an emergency alert to ensure service recovery is performed as quickly as possible.",
+    image: "./img/projectsection/Watchdog.png",
+    tech: ["n8n","Groq","Telegram"],
+    demo: "t.me/WatchdogSec_bot ",
+  },
 ];
 
 const ongoingProjects = [
