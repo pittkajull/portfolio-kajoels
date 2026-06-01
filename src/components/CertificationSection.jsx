@@ -71,6 +71,12 @@ const certifications = [
     desc: "Successfully completed the “AI Praktis untuk Produktivitas” course by Dicoding Indonesia, covering fundamental concepts of Artificial Intelligence, Machine Learning, Prompt Engineering, and the ethical use of AI to improve productivity and digital problem-solving skills.",
     image: "./img/certificationsection/Sertifikat-AIuntukproduktivitas-Dicoding.jpeg",
     portrait: false,
+  },
+  {
+    title: "Learning to Use Generative AI - DICODING INDONESIA",
+    desc: "Completed the “Belajar Menggunakan Generative AI” course by Dicoding Indonesia, gaining practical skills in utilizing generative AI technologies, including understanding generative models, prompt engineering, and ethical considerations for responsible AI use.",
+    image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
+    portrait: false,
   }
 ];
 
