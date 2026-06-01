@@ -34,6 +34,8 @@ const techLogos = {
   "TensorFlow": "./img/toolssection/tensorflow.svg",
   "Supabase": "./img/toolssection/supabase.svg",
   "Claude": "./img/toolssection/claude.svg",
+  "GSAP": "./img/toolssection/Gsap.png",
+  "JavaScript": "./img/toolssection/Javascript.png",
 };
 
 const completedProjects = [
