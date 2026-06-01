@@ -49,7 +49,7 @@ const toolsData = [
   { name: "JavaScript", icon: "./img/toolssection/Javascript.svg", category: "Programming" },
   { name: "n8n", icon: "./img/toolssection/n8n.svg", category: "Workflow" },
   { name: "Groq", icon: "./img/toolssection/groq.svg", category: "AI" },
-  { name: "Telegram", icon: "./img/toolssection/telegram.svg", category: "Communication" },
+  { name: "PHP", icon: "./img/toolssection/php.svg", category: "Programming" },
 ];
 
 function ToolCard({ name, icon, category }) {
