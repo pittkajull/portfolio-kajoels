@@ -45,6 +45,11 @@ const toolsData = [
   { name: "Claude", icon: "./img/toolssection/claude.svg", category: "AI" },
   { name: "Oracle Virtual Box", icon: "./img/toolssection/vb.svg", category: "Build" },
   { name: "CSS", icon: "./img/toolssection/css.svg", category: "Build" },
+  { name: "GSAP", icon: "./img/toolssection/GSAP.svg", category: "Animation" },
+  { name: "JavaScript", icon: "./img/toolssection/Javascript.svg", category: "Programming" },
+  { name: "n8n", icon: "./img/toolssection/n8n.svg", category: "Workflow" },
+  { name: "Groq", icon: "./img/toolssection/groq.svg", category: "AI" },
+  { name: "Telegram", icon: "./img/toolssection/telegram.svg", category: "Communication" },
 ];
 
 function ToolCard({ name, icon, category }) {
