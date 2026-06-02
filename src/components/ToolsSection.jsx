@@ -50,6 +50,8 @@ const toolsData = [
   { name: "n8n", icon: "./img/toolssection/n8n.svg", category: "Workflow" },
   { name: "Groq", icon: "./img/toolssection/groq.svg", category: "AI" },
   { name: "PHP", icon: "./img/toolssection/php.svg", category: "Programming" },
+  {name: "Arduino", icon: "./img/toolssection/arduino.svg", category: "IoT" },
+  
 ];
 
 function ToolCard({ name, icon, category }) {
