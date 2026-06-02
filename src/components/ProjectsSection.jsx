@@ -132,7 +132,7 @@ const ongoingProjects = [
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React"],
     github: "https://github.com/pittkajull/smart-infusion.git",
     demo: "#",
-    progress: 50,
+    progress: 80,
     target: "Q2 2026",
   },
 ];
