@@ -39,6 +39,7 @@ const techLogos = {
   "n8n": "./img/toolssection/n8n.svg",
   "Groq": "./img/toolssection/groq.svg",
   "Telegram": "./img/toolssection/telegram.svg",
+  "Arduino": "./img/toolssection/arduino.svg",
 };
 
 const completedProjects = [
@@ -129,7 +130,7 @@ const ongoingProjects = [
     title: "SIMS",
     desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
     image: "./img/projectsection/SIMS.png",
-    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React"],
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
     github: "https://github.com/pittkajull/smart-infusion.git",
     demo: "#",
     progress: 80,
