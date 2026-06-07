@@ -41,8 +41,8 @@ const certifications = [
   },
    {
     title: "Learning Basic AI - Dicoding",
-    desc: "Completed the Belajar Menggunakan Generative AI course by Dicoding Indonesia, gaining practical skills in generative AI technologies, prompt engineering, and responsible AI use.",
-    image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
+    desc: "Successfully completed the Belajar Dasar AI course by Dicoding Indonesia, covering fundamental AI concepts, machine learning basics, and practical applications of AI in various domains.",
+    image: "./img/certificationsection/BelajarDasarAI-DICODING.png",
     category: "programming",
   },
   {
