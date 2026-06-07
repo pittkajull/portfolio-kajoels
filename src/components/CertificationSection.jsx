@@ -21,6 +21,24 @@ const categories = [
 ];
 
 const certifications = [
+    {
+    title: "Cisco Introduction to Cybersecurity",
+    desc: "Completed the Introduction to Cybersecurity program by Cisco Networking Academy, covering cybersecurity fundamentals, online threats, and digital security practices.",
+    image: "./img/certificationsection/Sertifikat-Cisco-ITCS.png",
+    category: "programming",
+  },
+    {
+    title: "Practical AI for Productivity - Dicoding",
+    desc: "Successfully completed the AI Praktis untuk Produktivitas course by Dicoding Indonesia, covering fundamental concepts of AI, Machine Learning, Prompt Engineering, and ethical use of AI.",
+    image: "./img/certificationsection/Sertifikat-AIuntukproduktivitas-Dicoding.jpeg",
+    category: "programming",
+  },
+  {
+    title: "Learning Generative AI - Dicoding",
+    desc: "Completed the Belajar Menggunakan Generative AI course by Dicoding Indonesia, gaining practical skills in generative AI technologies, prompt engineering, and responsible AI use.",
+    image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
+    category: "programming",
+  },
   {
     title: "Ethical Hacking",
     desc: "Fundamentals of ethical hacking, penetration testing methodologies, and security assessment techniques.",
@@ -33,12 +51,7 @@ const certifications = [
     image: "./img/certificationsection/Sertifikat-KaliLinux.png",
     category: "programming",
   },
-  {
-    title: "Cisco Introduction to Cybersecurity",
-    desc: "Completed the Introduction to Cybersecurity program by Cisco Networking Academy, covering cybersecurity fundamentals, online threats, and digital security practices.",
-    image: "./img/certificationsection/Sertifikat-Cisco-ITCS.png",
-    category: "programming",
-  },
+
   {
     title: "Java Programming",
     desc: "Object-oriented programming concepts, Java syntax, and application development fundamentals.",
@@ -49,18 +62,6 @@ const certifications = [
     title: "Ignite Academy Bootcamp",
     desc: "Participated in the Mini Bootcamp Cyber Security program, focusing on secure coding practices and the integration of web development with cybersecurity principles.",
     image: "./img/certificationsection/Sertifikat-IgniteAcademy.jpeg",
-    category: "programming",
-  },
-  {
-    title: "Practical AI for Productivity - Dicoding",
-    desc: "Successfully completed the AI Praktis untuk Produktivitas course by Dicoding Indonesia, covering fundamental concepts of AI, Machine Learning, Prompt Engineering, and ethical use of AI.",
-    image: "./img/certificationsection/Sertifikat-AIuntukproduktivitas-Dicoding.jpeg",
-    category: "programming",
-  },
-  {
-    title: "Learning Generative AI - Dicoding",
-    desc: "Completed the Belajar Menggunakan Generative AI course by Dicoding Indonesia, gaining practical skills in generative AI technologies, prompt engineering, and responsible AI use.",
-    image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
     category: "programming",
   },
   {
