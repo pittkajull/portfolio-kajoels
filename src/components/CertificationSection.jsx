@@ -39,6 +39,12 @@ const certifications = [
     image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
     category: "programming",
   },
+   {
+    title: "Learning Basic AI - Dicoding",
+    desc: "Completed the Belajar Menggunakan Generative AI course by Dicoding Indonesia, gaining practical skills in generative AI technologies, prompt engineering, and responsible AI use.",
+    image: "./img/certificationsection/Sertifikat-BelajarGENAI.jpeg",
+    category: "programming",
+  },
   {
     title: "Ethical Hacking",
     desc: "Fundamentals of ethical hacking, penetration testing methodologies, and security assessment techniques.",
