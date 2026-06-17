@@ -52,6 +52,14 @@ const completedProjects = [
     demo: "https://sims.engineer",
   },
   {
+    title: "edelweys",
+    desc: "Your AI health companion — here to chat about nutrition, exercise, sleep & more. Track your BMI, daily habits, and get personalized tips. Friendly, free, and always reminds you to see a doctor when needed.",
+    image: "./img/projectsection/edelweys.png",
+    tech: ["React", "Tailwind", "Supabase", "Pyhton",],
+    github: "https://github.com/pittkajull/edelweys.git",
+    demo: "https://edelweys.tech",
+  },
+  {
     title: "Reincarnate",
     desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
     image: "./img/projectsection/Reincarnate.png",
