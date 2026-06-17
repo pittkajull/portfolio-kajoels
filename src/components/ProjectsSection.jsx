@@ -43,6 +43,14 @@ const techLogos = {
 };
 
 const completedProjects = [
+    {
+    title: "SIMS",
+    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
+    image: "./img/projectsection/SIMS.png",
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
+    github: "https://github.com/pittkajull/SIMS-Dashboard-Infus.git",
+    demo: "https://sims.engineer",
+  },
   {
     title: "Reincarnate",
     desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
@@ -126,16 +134,7 @@ const ongoingProjects = [
     progress: 70,
     target: "Q3 2026",
   },
-  {
-    title: "SIMS",
-    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
-    image: "./img/projectsection/SIMS.png",
-    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
-    github: "https://github.com/pittkajull/smart-infusion.git",
-    demo: "#",
-    progress: 80,
-    target: "Q2 2026",
-  },
+
 ];
 
 // Auto split: angka → font-sans, huruf → font-heading
