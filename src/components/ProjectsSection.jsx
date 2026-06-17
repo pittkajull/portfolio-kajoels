@@ -55,7 +55,7 @@ const completedProjects = [
     title: "edelweys",
     desc: "Your AI health companion — here to chat about nutrition, exercise, sleep & more. Track your BMI, daily habits, and get personalized tips. Friendly, free, and always reminds you to see a doctor when needed.",
     image: "./img/projectsection/edelweys.png",
-    tech: ["React", "Tailwind", "Supabase", "Pyhton",],
+    tech: ["React", "Tailwind", "Supabase", "Python",],
     github: "https://github.com/pittkajull/edelweys.git",
     demo: "https://edelweys.tech",
   },
