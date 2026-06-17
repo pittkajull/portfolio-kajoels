@@ -4,7 +4,7 @@ A personal portfolio website with a hand-drawn sketchbook aesthetic, built with 
 
 ## Live Demo
 
-[pittkajull.github.io/portfolio-kajoels](https://he1st.me)
+[he1st.me](https://he1st.me)
 
 ## Tech Stack
 
