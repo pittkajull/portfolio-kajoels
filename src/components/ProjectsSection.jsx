@@ -142,6 +142,16 @@ const ongoingProjects = [
     progress: 70,
     target: "Q3 2026",
   },
+   {
+    title: "MemoriMSDI",
+    desc: "A cinematic memorial website dedicated to preserving the precious moments and memories of MSDI.",
+    image: "./img/projectsection/memorimsdi.png",
+    tech: ["React","Tailwind"],
+    github: "https://github.com/pittkajull/memorimsdi.git",
+    demo: "#",
+    progress: 70,
+    target: "Q3 2026",
+  },
 
 ];
 
