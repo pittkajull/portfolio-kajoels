@@ -51,6 +51,10 @@ const toolsData = [
   { name: "Groq", icon: "./img/toolssection/groq.svg", category: "AI" },
   { name: "PHP", icon: "./img/toolssection/php.svg", category: "Programming" },
   {name: "Arduino", icon: "./img/toolssection/arduino.svg", category: "IoT" },
+  { name: "Gemini", icon: "./img/toolssection/gemini.svg", category: "AI" },
+  { name: "GitHub", icon: "./img/contactsection/github.svg", category: "Version Control" },
+  { name: "Telegram", icon: "./img/toolssection/telegram.svg", category: "Control" },
+  { name: "Supabase", icon: "./img/toolssection/supabase.svg", category: "Database" },
   
 ];
 

@@ -40,6 +40,8 @@ const techLogos = {
   "Groq": "./img/toolssection/groq.svg",
   "Telegram": "./img/toolssection/telegram.svg",
   "Arduino": "./img/toolssection/arduino.svg",
+  "GitHub": "./img/contactsection/github.svg",
+  "Gemini": "./img/toolssection/gemini.svg",
 };
 
 const completedProjects = [
@@ -115,7 +117,15 @@ const completedProjects = [
     github: "https://github.com/pittkajull/CIPHER.git",
     demo: "https://cipher-zeta-kohl.vercel.app/",
   },
-   {
+  {
+    title: "Nara - Automation AI Sosial Media Management",
+    desc: "Developed Nara, an autonomous AI Social Media Strategist that replicates a professional content team's workflow using workflow automation and LLMs. The system performs topic selection, strategic planning, content writing, editing, automated publishing to Threads, performance analytics, and knowledge base versioning. Built using n8n, Supabase, Gemini API, Buffer, and GitHub to deliver a scalable, end-to-end AI content automation solution.",
+    image: "./img/projectsection/Narabuffer.jpeg",
+    tech: ["n8n","Supabase","Gemini","GitHub", "Groq"],
+    github: "https://github.com/pittkajull/AI-Social-Media-Strategist.git",
+    demo: "#",
+  },
+  {
     title: "Yuuki - The Sarkastic AI Agent",
     desc: "Yuuki is an AI-based Telegram bot designed not to be a cute assistant, but rather the most honest and annoying friend. Using n8n as a workflow orchestrator and Groq as an inference engine, Yuuki breaks the mold of standard, boring and overly formal AI assistants.",
     image: "./img/projectsection/Yuuki.png",
