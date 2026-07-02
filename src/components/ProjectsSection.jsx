@@ -42,6 +42,7 @@ const techLogos = {
   "Arduino": "./img/toolssection/arduino.svg",
   "GitHub": "./img/contactsection/github.svg",
   "Gemini": "./img/toolssection/gemini.svg",
+  "Ngrok": "./img/toolssection/ngrok.svg",
 };
 
 const completedProjects = [
@@ -121,7 +122,7 @@ const completedProjects = [
     title: "Nara - Automation AI Sosial Media Management",
     desc: "Developed Nara, an autonomous AI Social Media Strategist that replicates a professional content team's workflow using workflow automation and LLMs. The system performs topic selection, strategic planning, content writing, editing, automated publishing to Threads, performance analytics, and knowledge base versioning. Built using n8n, Supabase, Gemini API, Buffer, and GitHub to deliver a scalable, end-to-end AI content automation solution.",
     image: "./img/projectsection/Narabuffer.jpeg",
-    tech: ["n8n","Supabase","Gemini","GitHub", "Groq"],
+    tech: ["n8n","Supabase","Gemini","GitHub", "Ngroq"],
     github: "https://github.com/pittkajull/AI-Social-Media-Strategist.git",
     demo: "#",
   },
@@ -129,14 +130,14 @@ const completedProjects = [
     title: "Yuuki - The Sarkastic AI Agent",
     desc: "Yuuki is an AI-based Telegram bot designed not to be a cute assistant, but rather the most honest and annoying friend. Using n8n as a workflow orchestrator and Groq as an inference engine, Yuuki breaks the mold of standard, boring and overly formal AI assistants.",
     image: "./img/projectsection/Yuuki.png",
-    tech: ["n8n","Groq","Telegram"],
+    tech: ["n8n","Groq","Telegram", "Ngrok"],
     demo: "https://t.me/kajoels_bot",
   },
   {
     title: "Watchdog - The 24/7 Website Guardian",
     desc: "An automated workflow designed to ensure 24/7 website availability. It uses scheduled triggers and conditional logic to verify server uptime. If the response is not up to standard (status 200 OK), the Telegram bot automatically sends an emergency alert to ensure service recovery is performed as quickly as possible.",
     image: "./img/projectsection/Watchdog.png",
-    tech: ["n8n","Groq","Telegram"],
+    tech: ["n8n","Groq","Telegram", "Ngroq"],
     demo: "t.me/WatchdogSec_bot ",
   },
 ];

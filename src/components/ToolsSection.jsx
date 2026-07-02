@@ -55,6 +55,7 @@ const toolsData = [
   { name: "GitHub", icon: "./img/contactsection/github.svg", category: "Version Control" },
   { name: "Telegram", icon: "./img/toolssection/telegram.svg", category: "Control" },
   { name: "Supabase", icon: "./img/toolssection/supabase.svg", category: "Database" },
+  {name: "Ngrok", icon: "./img/toolssection/ngrok.svg", category: "Networking" },
   
 ];
 
