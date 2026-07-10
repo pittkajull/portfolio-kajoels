@@ -122,7 +122,7 @@ const completedProjects = [
     title: "Nara - Automation AI Sosial Media Management",
     desc: "Developed Nara, an autonomous AI Social Media Strategist that replicates a professional content team's workflow using workflow automation and LLMs. The system performs topic selection, strategic planning, content writing, editing, automated publishing to Threads, performance analytics, and knowledge base versioning. Built using n8n, Supabase, Gemini API, Buffer, and GitHub to deliver a scalable, end-to-end AI content automation solution.",
     image: "./img/projectsection/Narabuffer.jpeg",
-    tech: ["n8n","Supabase","Gemini","GitHub", "Ngroq"],
+    tech: ["n8n","Supabase","Gemini","GitHub", "Ngrok"],
     github: "https://github.com/pittkajull/AI-Social-Media-Strategist.git",
     demo: "#",
   },
@@ -137,7 +137,7 @@ const completedProjects = [
     title: "Watchdog - The 24/7 Website Guardian",
     desc: "An automated workflow designed to ensure 24/7 website availability. It uses scheduled triggers and conditional logic to verify server uptime. If the response is not up to standard (status 200 OK), the Telegram bot automatically sends an emergency alert to ensure service recovery is performed as quickly as possible.",
     image: "./img/projectsection/Watchdog.png",
-    tech: ["n8n","Groq","Telegram", "Ngroq"],
+    tech: ["n8n","Groq","Telegram", "Ngrok"],
     demo: "t.me/WatchdogSec_bot ",
   },
 ];
