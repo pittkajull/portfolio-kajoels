@@ -119,6 +119,13 @@ const completedProjects = [
     demo: "https://cipher-zeta-kohl.vercel.app/",
   },
   {
+    title: "ThreadFlow  – AI-Powered Threads Content Automation"  ,
+    desc: "Built an AI-powered content automation system for Threads that streamlines content generation, approval, and publishing. Implemented automated workflows with n8n, integrated Google Gemini for AI-generated content, Supabase for data management, Telegram for approval workflows, and React for real-time monitoring dashboards.",
+    image: "./img/projectsection/ThreadFlow.png",
+    tech: ["n8n","Supabase","Gemini","GitHub", "Ngrok"],
+    github: "https://github.com/pittkajull/ThreadFlow.git",
+  },
+  {
     title: "Nara - Automation AI Sosial Media Management",
     desc: "Developed Nara, an autonomous AI Social Media Strategist that replicates a professional content team's workflow using workflow automation and LLMs. The system performs topic selection, strategic planning, content writing, editing, automated publishing to Threads, performance analytics, and knowledge base versioning. Built using n8n, Supabase, Gemini API, Buffer, and GitHub to deliver a scalable, end-to-end AI content automation solution.",
     image: "./img/projectsection/Narabuffer.jpeg",
