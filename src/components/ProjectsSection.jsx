@@ -119,6 +119,13 @@ const completedProjects = [
     demo: "https://cipher-zeta-kohl.vercel.app/",
   },
   {
+    title: "Carously: Instagram Feeds Carousel Automation",
+    desc: "Developed an AI-powered Instagram carousel automation system that streamlines the entire content publishing workflow, from story generation to final publication. The system automatically generates short-form carousel content using Google Gemini, renders each slide into images with APITemplate.io, sends the carousel to Telegram for human approval with manual or AI-assisted editing options, and publishes approved content to Instagram through Zernio.Designed a robust workflow in n8n with process state management using Supabase, enabling seamless synchronization between content generation, editing, approval, and publishing flows. Implemented validation for AI-generated outputs, edit limitations to prevent infinite revision loops, and reusable workflow architecture that supports both initial generation and post-edit rendering without duplicating logic.",
+    image: "./img/projectsection/Carously.png",
+    tech: ["n8n","Supabase","Gemini","Ngrok"],
+    github: "https://github.com/pittkajull/Carously.git",
+  },
+  {
     title: "ThreadFlow  – AI-Powered Threads Content Automation"  ,
     desc: "Built an AI-powered content automation system for Threads that streamlines content generation, approval, and publishing. Implemented automated workflows with n8n, integrated Google Gemini for AI-generated content, Supabase for data management, Telegram for approval workflows, and React for real-time monitoring dashboards.",
     image: "./img/projectsection/ThreadFlow.png",
