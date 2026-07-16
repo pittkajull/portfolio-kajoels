@@ -118,7 +118,7 @@ export default function HeroSection() {
 
         {/* Subtitle — word by word */}
         <p className="hero-subtitle text-white/60 text-sm sm:text-lg font-light tracking-wide max-w-2xl mx-auto">
-          {"Front-End Developer & Prompt Engineer".split(" ").map((word, i) => (
+          {"AI Engineer & Front-End Developer".split(" ").map((word, i) => (
             <span key={i} className="hero-word inline-block mr-1.5">{word}</span>
           ))}
         </p>
