@@ -175,17 +175,22 @@ export default function AboutSection({ scrollTo }) {
           <p className="text-white/80 text-lg font-heading mb-2">Muhajir Amrullah</p>
           <SketchUnderline width={140} pathClassName="about-draw-path" />
           <p className="about-desc mt-6 text-white/60 text-sm leading-7 max-w-md font-heading">
-            Front-End Developer focused on building responsive, visually engaging,
-            and user-centered web experiences. Experienced in developing and deploying
-            websites from design to implementation, with additional expertise in{" "}
-            <span className="text-white/90">UI/UX</span> and{" "}
-            <span className="text-white/90">AI prompting</span>.
+            An{" "}
+            <span className="text-white/90">Information Technology</span> student
+            at{" "}
+            <span className="text-white/90">Universitas Brawijaya</span> with a
+            strong passion for{" "}
+            <span className="text-white/90">AI Engineering</span>,{" "}
+            <span className="text-white/90">AI Automation</span>, and{" "}
+            <span className="text-white/90">Software Development</span>.
           </p>
           <p className="about-desc mt-3 text-white/60 text-sm leading-7 max-w-md font-heading">
-            Currently expanding into <span className="text-white/90">Cyber Security</span>,
-            particularly penetration testing, with a security-first mindset.
-            Information Technology student at{" "}
-            <span className="text-white/90">Universitas Brawijaya</span>.
+            Experienced in developing web applications, AI-driven automation
+            workflows, and digital solutions using modern technologies. Enthusiastic
+            about exploring{" "}
+            <span className="text-white/90">Large Language Models (LLMs)</span>,{" "}
+            <span className="text-white/90">API integrations</span>, and automation
+            systems to build efficient, impactful solutions.
           </p>
           <div className="about-desc mt-8 flex gap-4">
             <MagneticButton
