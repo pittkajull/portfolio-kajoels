@@ -188,7 +188,7 @@ export default function AboutSection({ scrollTo }) {
             Experienced in developing web applications, AI-driven automation
             workflows, and digital solutions using modern technologies. Enthusiastic
             about exploring{" "}
-            <span className="text-white/90">Large Language Models (LLMs)</span>,{" "}
+            <span className="text-white/90">Large Language Models LLMs</span>,{" "}
             <span className="text-white/90">API integrations</span>, and automation
             systems to build efficient, impactful solutions.
           </p>
