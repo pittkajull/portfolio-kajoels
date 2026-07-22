@@ -22,7 +22,10 @@ const categories = [
 
 const certifications = [
   {
-  
+    title: "LLM-Based Tools and Gemini API Integration for Data Scientists",
+    desc: "Completed the LLM-Based Tools and Gemini API Integration for Data Scientists program by Hacktiv8. Learned to integrate the Gemini API, leverage LLM-based tools, and build AI-powered workflows for data science and automation.",
+    image: "./img/certificationsection/Sertifikat-MajuBarengAI.png",
+    category: "programming",
   },
   {
     title: "Productivity with AI Bootcamp",
