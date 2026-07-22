@@ -22,6 +22,9 @@ const categories = [
 
 const certifications = [
   {
+  
+  },
+  {
     title: "Productivity with AI Bootcamp",
     desc: "Completed the Productivity with AI Bootcamp by Badan Ekraf Digital Talent 2026 in collaboration with Dicoding. Learned practical applications of Generative AI to enhance productivity, automate workflows, and solve real-world challenges using AI-powered tools.",
     image: "./img/certificationsection/Sertifikat-Kelulusan.png",
