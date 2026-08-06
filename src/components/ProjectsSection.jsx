@@ -46,13 +46,13 @@ const techLogos = {
 };
 
 const completedProjects = [
-    {
-    title: "SIMS",
-    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
-    image: "./img/projectsection/SIMS.png",
-    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
-    github: "https://github.com/pittkajull/SIMS-Dashboard-Infus.git",
-    demo: "https://sims.engineer",
+   {
+    title: "MemoriMSDI",
+    desc: "A cinematic memorial website dedicated to preserving the precious moments and memories of MSDI.",
+    image: "./img/projectsection/memorimsdi.png",
+    tech: ["React","Tailwind"],
+    github: "https://github.com/pittkajull/memorimsdi.git",
+    demo: "https://memorimsdi.my.id",
   },
   {
     title: "edelweys",
@@ -63,11 +63,43 @@ const completedProjects = [
     demo: "https://edelweys.tech",
   },
   {
+    title: "Class Billiard",
+    desc: "A premium billiard lounge & cafe website featuring table reservations, menu browsing, team profiles, tournament showcases, and customer reviews — serving as both a marketing platform and booking portal.",
+    image: "./img/projectsection/class-billiard.png",
+    tech: ["CSS", "HTML", "Tailwind", "Blade", "Laravel", "PHP", "MySQL"],
+    github: "https://github.com/pittkajull/class_billiard.git",
+    demo: "https://classbilliard.com",
+  },
+  {
     title: "Reincarnate",
     desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
     image: "./img/projectsection/Reincarnate.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
     github: "https://github.com/pittkajull/reincarnate.git",
+    demo: "#",
+  },
+   {
+    title: "OS-Portfolio",
+    desc: "An experimental portfolio project inspired by a desktop operating system, built with React and Tailwind CSS. Designed to create an interactive and playful experience through desktop-style navigation and window-based UI.",
+    image: "./img/projectsection/OS-he1st.png",
+    tech: ["React" , "Tailwind" , "Claude"],
+    github: "https://github.com/pittkajull/he1st.git",
+    demo: "https://os-he1st.vercel.app/",
+  },
+   {
+    title: "CIPHER",
+    desc: "CIPHER is an AI-powered interactive cybersecurity education game where users become cyber agents and solve realistic attack cases through evidence analysis and clue discovery. Guided by ARIA, an intelligent briefing officer powered by Gemini AI, players learn cybersecurity through immersive, gamified investigation experiences. Built with React, Tailwind CSS, GSAP, and Express.js with a security-first architecture.",
+    image: "./img/projectsection/CIPHER.png",
+    tech: ["React","Tailwind","GSAP","JavaScript"],
+    github: "https://github.com/pittkajull/CIPHER.git",
+    demo: "https://cipher-zeta-kohl.vercel.app/",
+  },
+   {
+    title: "SIMS",
+    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
+    image: "./img/projectsection/SIMS.png",
+    tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
+    github: "https://github.com/pittkajull/SIMS-Dashboard-Infus.git",
     demo: "#",
   },
   {
@@ -87,14 +119,6 @@ const completedProjects = [
     demo: "#",
   },
   {
-    title: "Class Billiard",
-    desc: "A premium billiard lounge & cafe website featuring table reservations, menu browsing, team profiles, tournament showcases, and customer reviews — serving as both a marketing platform and booking portal.",
-    image: "./img/projectsection/class-billiard.png",
-    tech: ["CSS", "HTML", "Tailwind", "Blade", "Laravel", "PHP", "MySQL"],
-    github: "https://github.com/pittkajull/class_billiard.git",
-    demo: "https://classbilliard.com",
-  },
-  {
     title: "Pakbie",
     desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
     image: "./img/projectsection/pakbie.png",
@@ -102,22 +126,7 @@ const completedProjects = [
     github: "https://github.com/pittkajull/umkmpakbie.git",
     demo: "#",
   },
-  {
-    title: "OS-Portfolio",
-    desc: "An experimental portfolio project inspired by a desktop operating system, built with React and Tailwind CSS. Designed to create an interactive and playful experience through desktop-style navigation and window-based UI.",
-    image: "./img/projectsection/OS-he1st.png",
-    tech: ["React" , "Tailwind" , "Claude"],
-    github: "https://github.com/pittkajull/he1st.git",
-    demo: "https://os-he1st.vercel.app/",
-  },
-   {
-    title: "CIPHER",
-    desc: "CIPHER is an AI-powered interactive cybersecurity education game where users become cyber agents and solve realistic attack cases through evidence analysis and clue discovery. Guided by ARIA, an intelligent briefing officer powered by Gemini AI, players learn cybersecurity through immersive, gamified investigation experiences. Built with React, Tailwind CSS, GSAP, and Express.js with a security-first architecture.",
-    image: "./img/projectsection/CIPHER.png",
-    tech: ["React","Tailwind","GSAP","JavaScript"],
-    github: "https://github.com/pittkajull/CIPHER.git",
-    demo: "https://cipher-zeta-kohl.vercel.app/",
-  },
+ 
   {
     title: "Carously: Instagram Feeds Carousel Automation",
     desc: "Developed an AI-powered Instagram carousel automation system that streamlines the entire content publishing workflow, from story generation to final publication. The system automatically generates short-form carousel content using Google Gemini, renders each slide into images with APITemplate.io, sends the carousel to Telegram for human approval with manual or AI-assisted editing options, and publishes approved content to Instagram through Zernio.Designed a robust workflow in n8n with process state management using Supabase, enabling seamless synchronization between content generation, editing, approval, and publishing flows. Implemented validation for AI-generated outputs, edit limitations to prevent infinite revision loops, and reusable workflow architecture that supports both initial generation and post-edit rendering without duplicating logic.",
@@ -166,18 +175,7 @@ const ongoingProjects = [
     demo: "#",
     progress: 70,
     target: "Q3 2026",
-  },
-   {
-    title: "MemoriMSDI",
-    desc: "A cinematic memorial website dedicated to preserving the precious moments and memories of MSDI.",
-    image: "./img/projectsection/memorimsdi.png",
-    tech: ["React","Tailwind"],
-    github: "https://github.com/pittkajull/memorimsdi.git",
-    demo: "#",
-    progress: 70,
-    target: "Q3 2026",
-  },
-
+  }
 ];
 
 // Auto split: angka → font-sans, huruf → font-heading
