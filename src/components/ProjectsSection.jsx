@@ -46,6 +46,14 @@ const techLogos = {
 };
 
 const completedProjects = [
+  {
+    title: "Kagama Digi",
+    desc: "Landing page for the UGM alumni community \"Digital & Inovasi\", covering organization profile, programs, and activity gallery. Features an alumni-only member registration form with a hidden admin dashboard, a global photo lightbox, and smooth navigation across 9 sections.",
+    image: "./img/projectsection/Kagama.png",
+    tech: ["React", "Tailwind", "GSAP"],
+    github: "https://github.com/pittkajull/kakgem.git",
+    demo: "https://kagamadigi.id/",
+  },
    {
     title: "MemoriMSDI",
     desc: "A cinematic memorial website dedicated to preserving the precious moments and memories of MSDI.",
@@ -56,7 +64,7 @@ const completedProjects = [
   },
   {
     title: "edelweys",
-    desc: "Your AI health companion — here to chat about nutrition, exercise, sleep & more. Track your BMI, daily habits, and get personalized tips. Friendly, free, and always reminds you to see a doctor when needed.",
+    desc: "An AI health companion to chat about nutrition, exercise, and sleep. Track your BMI and daily habits, and get personalized tips — always with a reminder to see a doctor when needed.",
     image: "./img/projectsection/edelweys.png",
     tech: ["React", "Tailwind", "Supabase", "Python",],
     github: "https://github.com/pittkajull/edelweys.git",
@@ -64,7 +72,7 @@ const completedProjects = [
   },
   {
     title: "Class Billiard",
-    desc: "A premium billiard lounge & cafe website featuring table reservations, menu browsing, team profiles, tournament showcases, and customer reviews — serving as both a marketing platform and booking portal.",
+    desc: "A premium billiard lounge & cafe website serving as both marketing platform and booking portal — table reservations, menu browsing, tournament showcases, and customer reviews.",
     image: "./img/projectsection/class-billiard.png",
     tech: ["CSS", "HTML", "Tailwind", "Blade", "Laravel", "PHP", "MySQL"],
     github: "https://github.com/pittkajull/class_billiard.git",
@@ -72,7 +80,7 @@ const completedProjects = [
   },
   {
     title: "Reincarnate",
-    desc: "A thrift marketplace platform for buying and selling pre-loved items — from clothes, shoes, to hats. Features store management, product listings, and a shopping experience similar to e-commerce platforms like Shopee.",
+    desc: "A thrift marketplace for buying and selling pre-loved clothes, shoes, and hats. Includes store management, product listings, and an e-commerce-style shopping flow.",
     image: "./img/projectsection/Reincarnate.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
     github: "https://github.com/pittkajull/reincarnate.git",
@@ -80,7 +88,7 @@ const completedProjects = [
   },
    {
     title: "OS-Portfolio",
-    desc: "An experimental portfolio project inspired by a desktop operating system, built with React and Tailwind CSS. Designed to create an interactive and playful experience through desktop-style navigation and window-based UI.",
+    desc: "An experimental portfolio inspired by a desktop operating system, built for a playful, interactive feel through desktop-style navigation and window-based UI.",
     image: "./img/projectsection/OS-he1st.png",
     tech: ["React" , "Tailwind" , "Claude"],
     github: "https://github.com/pittkajull/he1st.git",
@@ -88,7 +96,7 @@ const completedProjects = [
   },
    {
     title: "CIPHER",
-    desc: "CIPHER is an AI-powered interactive cybersecurity education game where users become cyber agents and solve realistic attack cases through evidence analysis and clue discovery. Guided by ARIA, an intelligent briefing officer powered by Gemini AI, players learn cybersecurity through immersive, gamified investigation experiences. Built with React, Tailwind CSS, GSAP, and Express.js with a security-first architecture.",
+    desc: "An AI-powered cybersecurity education game where players become cyber agents and solve realistic attack cases through evidence analysis. Guided by ARIA, a briefing officer powered by Gemini AI.",
     image: "./img/projectsection/CIPHER.png",
     tech: ["React","Tailwind","GSAP","JavaScript"],
     github: "https://github.com/pittkajull/CIPHER.git",
@@ -96,7 +104,7 @@ const completedProjects = [
   },
    {
     title: "SIMS",
-    desc: "Smart Infusion Monitoring System — an IoT-based healthcare solution that digitizes and automates IV fluid monitoring in hospitals. Enables medical staff to track remaining infusion volume, detect flow blockages, and receive real-time alerts when fluid is about to run out, all through a web dashboard.",
+    desc: "Smart Infusion Monitoring System — an IoT healthcare solution for hospitals. Medical staff can track remaining IV volume, detect flow blockages, and get real-time alerts through a web dashboard.",
     image: "./img/projectsection/SIMS.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
     github: "https://github.com/pittkajull/SIMS-Dashboard-Infus.git",
@@ -104,7 +112,7 @@ const completedProjects = [
   },
   {
     title: "Artnest",
-    desc: "A social media platform for digital creators to showcase, share, and discover digital artwork. Built as a community-driven space where artists can connect and present their creative portfolios.",
+    desc: "A social media platform for digital creators to showcase, share, and discover artwork — a community-driven space where artists connect and present their portfolios.",
     image: "./img/projectsection/Artnest.png",
     tech: ["CSS", "HTML", "Tailwind", "PHP", "MySQL"],
     github: "https://github.com/pittkajull/artnest.git",
@@ -112,7 +120,7 @@ const completedProjects = [
   },
   {
     title: "Focusly",
-    desc: "A focus and productivity app inspired by the Pomodoro technique, enhanced with pre-study relaxation sessions to calm the user before starting, and post-study appreciation moments to celebrate completion.",
+    desc: "A focus app based on the Pomodoro technique, with pre-study relaxation sessions to calm the user before starting and appreciation moments to celebrate completion.",
     image: "./img/projectsection/Focusly.png",
     tech: ["Dart", "Flutter", "Firebase"],
     github: "https://github.com/pittkajull/focusly.git",
@@ -120,7 +128,7 @@ const completedProjects = [
   },
   {
     title: "Pakbie",
-    desc: "A website helping a local UMKM nasi goreng stall with digital financial bookkeeping, expense tracking, and business management tools to streamline daily operations.",
+    desc: "A website helping a local nasi goreng UMKM with digital bookkeeping, expense tracking, and business management tools to streamline daily operations.",
     image: "./img/projectsection/pakbie.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Blade"],
     github: "https://github.com/pittkajull/umkmpakbie.git",
@@ -129,21 +137,21 @@ const completedProjects = [
  
   {
     title: "Carously: Instagram Feeds Carousel Automation",
-    desc: "Developed an AI-powered Instagram carousel automation system that streamlines the entire content publishing workflow, from story generation to final publication. The system automatically generates short-form carousel content using Google Gemini, renders each slide into images with APITemplate.io, sends the carousel to Telegram for human approval with manual or AI-assisted editing options, and publishes approved content to Instagram through Zernio.Designed a robust workflow in n8n with process state management using Supabase, enabling seamless synchronization between content generation, editing, approval, and publishing flows. Implemented validation for AI-generated outputs, edit limitations to prevent infinite revision loops, and reusable workflow architecture that supports both initial generation and post-edit rendering without duplicating logic.",
+    desc: "An AI-powered Instagram carousel automation system covering the full publishing workflow — Gemini generates the story, APITemplate.io renders each slide, Telegram handles human approval and editing, then approved content is published automatically.",
     image: "./img/projectsection/Carously.png",
     tech: ["n8n","Supabase","Gemini","Ngrok"],
     github: "https://github.com/pittkajull/Carously.git",
   },
   {
     title: "ThreadFlow  – AI-Powered Threads Content Automation"  ,
-    desc: "Built an AI-powered content automation system for Threads that streamlines content generation, approval, and publishing. Implemented automated workflows with n8n, integrated Google Gemini for AI-generated content, Supabase for data management, Telegram for approval workflows, and React for real-time monitoring dashboards.",
+    desc: "An AI content automation system for Threads that streamlines generation, approval, and publishing — n8n workflows with Gemini for content, Supabase for data, Telegram for approval, and a React monitoring dashboard.",
     image: "./img/projectsection/ThreadFlow.png",
     tech: ["n8n","Supabase","Gemini","GitHub", "Ngrok"],
     github: "https://github.com/pittkajull/ThreadFlow.git",
   },
   {
     title: "Nara - Automation AI Sosial Media Management",
-    desc: "Developed Nara, an autonomous AI Social Media Strategist that replicates a professional content team's workflow using workflow automation and LLMs. The system performs topic selection, strategic planning, content writing, editing, automated publishing to Threads, performance analytics, and knowledge base versioning. Built using n8n, Supabase, Gemini API, Buffer, and GitHub to deliver a scalable, end-to-end AI content automation solution.",
+    desc: "An autonomous AI Social Media Strategist that replicates a professional content team's workflow — topic selection, planning, writing, editing, automated publishing to Threads, and performance analytics.",
     image: "./img/projectsection/Narabuffer.jpeg",
     tech: ["n8n","Supabase","Gemini","GitHub", "Ngrok"],
     github: "https://github.com/pittkajull/AI-Social-Media-Strategist.git",
@@ -151,14 +159,14 @@ const completedProjects = [
   },
   {
     title: "Yuuki - The Sarkastic AI Agent",
-    desc: "Yuuki is an AI-based Telegram bot designed not to be a cute assistant, but rather the most honest and annoying friend. Using n8n as a workflow orchestrator and Groq as an inference engine, Yuuki breaks the mold of standard, boring and overly formal AI assistants.",
+    desc: "A Telegram bot that isn't a cute assistant, but your most honest and annoying friend. Built with n8n as the workflow orchestrator and Groq as the inference engine — the opposite of a formal AI assistant.",
     image: "./img/projectsection/Yuuki.png",
     tech: ["n8n","Groq","Telegram", "Ngrok"],
     demo: "https://t.me/kajoels_bot",
   },
   {
     title: "Watchdog - The 24/7 Website Guardian",
-    desc: "An automated workflow designed to ensure 24/7 website availability. It uses scheduled triggers and conditional logic to verify server uptime. If the response is not up to standard (status 200 OK), the Telegram bot automatically sends an emergency alert to ensure service recovery is performed as quickly as possible.",
+    desc: "An automated workflow ensuring 24/7 website availability. Scheduled triggers verify server uptime, and if the response isn't 200 OK, a Telegram bot fires an emergency alert for fast recovery.",
     image: "./img/projectsection/Watchdog.png",
     tech: ["n8n","Groq","Telegram", "Ngrok"],
     demo: "t.me/WatchdogSec_bot ",
@@ -168,15 +176,16 @@ const completedProjects = [
 const ongoingProjects = [
   {
     title: "StockPP",
-    desc: "An autonomous financial forecasting agent that automates the entire ML lifecycle for stock market analysis — from real-time data collection, preprocessing, training, to deployment. Uses Stacked LSTM with automated retraining and RMSE-based validation. Integrates Supabase for cloud persistence and FastAPI with model caching, reducing inference latency from ~5s to <50ms. Currently monitors 8 major stocks with ~15 automated retraining cycles per week, cutting manual analysis time by 90%.",
+    desc: "An autonomous financial forecasting agent that automates the whole ML lifecycle for stock analysis — from data collection and training to deployment. Uses Stacked LSTM with automated retraining, monitoring 8 major stocks with inference under 50ms.",
     image: "./img/projectsection/StockPP.png",
     tech: ["Python", "React", "TensorFlow", "Supabase", "Tailwind"],
     github: "https://github.com/pittkajull/StockPP.git",
     demo: "#",
     progress: 70,
     target: "Q3 2026",
-  }
+  },
 ];
+
 
 // Auto split: angka → font-sans, huruf → font-heading
 function mixedFont(text) {
