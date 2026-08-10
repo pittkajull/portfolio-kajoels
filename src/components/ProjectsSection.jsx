@@ -48,7 +48,7 @@ const techLogos = {
 const completedProjects = [
   {
     title: "Kagama Digi",
-    desc: "Landing page for the UGM alumni community \"Digital & Inovasi\", covering organization profile, programs, and activity gallery. Features an alumni-only member registration form with a hidden admin dashboard, a global photo lightbox, and smooth navigation across 9 sections.",
+    desc: "Landing page for the UGM alumni community \"Digital & Inovasi\", with UI and features built to the client's requests. Covers organization profile, programs, and activity gallery — plus an alumni-only registration form with a hidden admin dashboard, a global photo lightbox, and smooth navigation across 9 sections.",
     image: "./img/projectsection/Kagama.png",
     tech: ["React", "Tailwind", "GSAP"],
     github: "https://github.com/pittkajull/kakgem.git",
