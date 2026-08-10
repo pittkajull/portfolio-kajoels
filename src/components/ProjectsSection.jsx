@@ -250,21 +250,32 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, target,
     const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
     if (isTouch) return;
 
+    gsap.set(card, { transformPerspective: 800 });
+
+    // Reusable tweens — avoids allocating a new tween on every mousemove
+    const rotY = gsap.quickTo(card, "rotateY", { duration: 0.3, ease: "power2.out" });
+    const rotX = gsap.quickTo(card, "rotateX", { duration: 0.3, ease: "power2.out" });
+
+    let rect = null;
+    let leaveTween = null;
+
+    const onEnter = () => {
+      leaveTween?.kill();
+      rect = card.getBoundingClientRect();
+    };
+
     const onMove = (e) => {
-      const rect = card.getBoundingClientRect();
+      // rect is cached on enter so mousemove never forces a layout read
+      if (!rect) rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to(card, {
-        rotateY: x * 10,
-        rotateX: -y * 10,
-        transformPerspective: 800,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+      rotY(x * 10);
+      rotX(-y * 10);
     };
 
     const onLeave = () => {
-      gsap.to(card, {
+      rect = null;
+      leaveTween = gsap.to(card, {
         rotateY: 0,
         rotateX: 0,
         rotate: baseTilt,
@@ -273,9 +284,11 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, target,
       });
     };
 
+    card.addEventListener("mouseenter", onEnter);
     card.addEventListener("mousemove", onMove, { passive: true });
     card.addEventListener("mouseleave", onLeave);
     return () => {
+      card.removeEventListener("mouseenter", onEnter);
       card.removeEventListener("mousemove", onMove);
       card.removeEventListener("mouseleave", onLeave);
     };
@@ -292,12 +305,16 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, target,
         <img
           src={frame}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full pointer-events-none opacity-50 group-hover:opacity-90 transition-opacity duration-500"
         />
         <div className="absolute inset-0 flex items-center justify-center" style={{ padding: "10% 9%" }}>
           <img
             src={image}
             alt={title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-sm opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
           />
         </div>
@@ -315,6 +332,8 @@ function ProjectCard({ title, desc, image, tech, github, demo, progress, target,
             src={techLogos[t]}
             alt={t}
             title={t}
+            loading="lazy"
+            decoding="async"
             className="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity duration-200"
           />
         ))}
