@@ -108,7 +108,7 @@ const completedProjects = [
     image: "./img/projectsection/SIMS.png",
     tech: ["Laravel", "HTML", "CSS", "MySQL", "PHP", "Tailwind", "React", "Arduino"],
     github: "https://github.com/pittkajull/SIMS-Dashboard-Infus.git",
-    demo: "#",
+    demo: "https://sims.engineer",
   },
   {
     title: "Artnest",
